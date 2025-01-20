@@ -5,36 +5,85 @@ warnings.filterwarnings(
 )
 
 from flask import Flask, render_template, jsonify, request
+import logging
 import yaml
 import os
 import threading
 import time
-import psutil
 import sys
 
 # 添加项目根目录到 Python 路径
-import sys
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
-sys.path.append(parent_dir)
+if parent_dir not in sys.path:
+    sys.path.append(parent_dir)
 
-# 使用绝对导入
+# 导入必要的模块
 from src.scheduler import BackupScheduler
 from src.logger import setup_logger
 from src.history import get_history, backup_history
 from src.sftp_client import SFTPClient
 
-app = Flask(__name__, 
-           template_folder=os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), 'templates'),
-           static_folder=os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), 'static'))
+# 禁用 Werkzeug 的请求日志
+log = logging.getLogger('werkzeug')
+log.setLevel(logging.ERROR)
+
+def get_app_path():
+    """获取应用程序路径"""
+    if getattr(sys, 'frozen', False):
+        # 如果是打包后的exe
+        return os.path.dirname(sys.executable)
+    else:
+        # 如果是开发环境
+        return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+def get_template_path():
+    """获取模板路径"""
+    if getattr(sys, 'frozen', False):
+        # 如果是打包后的exe
+        return os.path.join(os.path.dirname(sys.executable), 'templates')
+    else:
+        # 如果是开发环境
+        return os.path.join(os.path.dirname(os.path.dirname(__file__)), 'src', 'templates')
+
+def get_static_path():
+    """获取静态文件路径"""
+    if getattr(sys, 'frozen', False):
+        # 如果是打包后的exe
+        return os.path.join(os.path.dirname(sys.executable), 'static')
+    else:
+        # 如果是开发环境
+        return os.path.join(os.path.dirname(os.path.dirname(__file__)), 'src', 'static')
+
+# 设置应用程序路径
+APP_PATH = get_app_path()
+TEMPLATE_PATH = get_template_path()
+STATIC_PATH = get_static_path()
+
+# 创建Flask应用
+app = Flask(__name__,
+           template_folder=TEMPLATE_PATH,
+           static_folder=STATIC_PATH)
+
+# 添加调试日志
+@app.before_request
+def before_request():
+    app.logger.debug(f"Template folder: {TEMPLATE_PATH}")
+    app.logger.debug(f"Static folder: {STATIC_PATH}")
+    app.logger.debug(f"App path: {APP_PATH}")
+
 scheduler = None
 config = None
 
 def load_config():
     """加载配置文件"""
-    config_path = os.path.join('config', 'config.yaml')
-    with open(config_path, 'r', encoding='utf-8') as f:
-        return yaml.safe_load(f)
+    try:
+        config_path = os.path.join(APP_PATH, 'config', 'config.yaml')
+        with open(config_path, 'r', encoding='utf-8') as f:
+            return yaml.safe_load(f)
+    except Exception as e:
+        app.logger.error(f"加载配置文件失败: {str(e)}")
+        raise
 
 def run_scheduler():
     """在后台线程运行调度器"""
@@ -46,13 +95,21 @@ def index():
     """主页"""
     try:
         # 加载最新的配置
-        with open('config/config.yaml', 'r', encoding='utf-8') as f:
+        config_path = os.path.join(APP_PATH, 'config', 'config.yaml')
+        app.logger.debug(f"Loading config from: {config_path}")
+        
+        with open(config_path, 'r', encoding='utf-8') as f:
             current_config = yaml.safe_load(f)
+        
+        template_file = os.path.join(TEMPLATE_PATH, 'index.html')
+        app.logger.debug(f"Template file path: {template_file}")
+        app.logger.debug(f"Template exists: {os.path.exists(template_file)}")
             
         return render_template('index.html', 
                              tasks=current_config['backup_tasks'],
                              servers=current_config['servers'])
     except Exception as e:
+        app.logger.error(f"加载配置失败: {str(e)}", exc_info=True)
         return f"Error loading configuration: {str(e)}"
 
 @app.route('/api/tasks')
@@ -64,17 +121,6 @@ def get_tasks():
 def get_servers():
     """获取所有服务器"""
     return jsonify(config['servers'])
-
-@app.route('/api/logs')
-def get_logs():
-    """获取最新的日志"""
-    log_file = config['logging']['file']
-    try:
-        with open(log_file, 'r', encoding='utf-8') as f:
-            logs = f.readlines()[-100:]  # 获取最后100行
-        return jsonify({'logs': logs})
-    except Exception as e:
-        return jsonify({'error': str(e)})
 
 @app.route('/api/run_backup', methods=['POST'])
 def run_backup():
@@ -101,7 +147,7 @@ def add_server():
             return jsonify({'success': False, 'message': '缺少必要的服务器信息'})
             
         # 加载当前配置
-        with open('config/config.yaml', 'r', encoding='utf-8') as f:
+        with open(os.path.join(APP_PATH, 'config', 'config.yaml'), 'r', encoding='utf-8') as f:
             current_config = yaml.safe_load(f)
             
         # 检查服务器名是否已存在
@@ -117,7 +163,7 @@ def add_server():
         }
         
         # 保存配置
-        with open('config/config.yaml', 'w', encoding='utf-8') as f:
+        with open(os.path.join(APP_PATH, 'config', 'config.yaml'), 'w', encoding='utf-8') as f:
             yaml.dump(current_config, f, allow_unicode=True)
             
         return jsonify({'success': True, 'message': '服务器添加成功'})
@@ -133,7 +179,7 @@ def edit_server():
             return jsonify({'success': False, 'message': '缺少必要的服务器信息'})
             
         # 加载当前配置
-        with open('config/config.yaml', 'r', encoding='utf-8') as f:
+        with open(os.path.join(APP_PATH, 'config', 'config.yaml'), 'r', encoding='utf-8') as f:
             current_config = yaml.safe_load(f)
             
         # 更新服务器信息
@@ -145,7 +191,7 @@ def edit_server():
         }
         
         # 保存配置
-        with open('config/config.yaml', 'w', encoding='utf-8') as f:
+        with open(os.path.join(APP_PATH, 'config', 'config.yaml'), 'w', encoding='utf-8') as f:
             yaml.dump(current_config, f, allow_unicode=True)
             
         return jsonify({'success': True, 'message': '服务器信息更新成功'})
@@ -161,7 +207,7 @@ def delete_server():
             return jsonify({'success': False, 'message': '未指定服务器名称'})
             
         # 加载当前配置
-        with open('config/config.yaml', 'r', encoding='utf-8') as f:
+        with open(os.path.join(APP_PATH, 'config', 'config.yaml'), 'r', encoding='utf-8') as f:
             current_config = yaml.safe_load(f)
             
         # 检查服务器是否在使用中
@@ -177,7 +223,7 @@ def delete_server():
             del current_config['servers'][server_name]
             
             # 保存配置
-            with open('config/config.yaml', 'w', encoding='utf-8') as f:
+            with open(os.path.join(APP_PATH, 'config', 'config.yaml'), 'w', encoding='utf-8') as f:
                 yaml.dump(current_config, f, allow_unicode=True)
                 
             return jsonify({'success': True, 'message': '服务器删除成功'})
@@ -221,7 +267,7 @@ def add_task():
             return jsonify({'success': False, 'message': '缺少必要的任务信息'})
             
         # 加载当前配置
-        with open('config/config.yaml', 'r', encoding='utf-8') as f:
+        with open(os.path.join(APP_PATH, 'config', 'config.yaml'), 'r', encoding='utf-8') as f:
             current_config = yaml.safe_load(f)
             
         # 检查任务名是否已存在
@@ -243,7 +289,7 @@ def add_task():
         }
         
         # 保存配置
-        with open('config/config.yaml', 'w', encoding='utf-8') as f:
+        with open(os.path.join(APP_PATH, 'config', 'config.yaml'), 'w', encoding='utf-8') as f:
             yaml.dump(current_config, f, allow_unicode=True)
             
         # 重新加载调度器
@@ -262,7 +308,7 @@ def edit_task():
             return jsonify({'success': False, 'message': '缺少必要的任务信息'})
             
         # 加载当前配置
-        with open('config/config.yaml', 'r', encoding='utf-8') as f:
+        with open(os.path.join(APP_PATH, 'config', 'config.yaml'), 'r', encoding='utf-8') as f:
             current_config = yaml.safe_load(f)
             
         # 检查目标服务器是否存在
@@ -280,7 +326,7 @@ def edit_task():
         }
         
         # 保存配置
-        with open('config/config.yaml', 'w', encoding='utf-8') as f:
+        with open(os.path.join(APP_PATH, 'config', 'config.yaml'), 'w', encoding='utf-8') as f:
             yaml.dump(current_config, f, allow_unicode=True)
             
         # 重新加载调度器
@@ -299,7 +345,7 @@ def delete_task():
             return jsonify({'success': False, 'message': '未指定任务名称'})
             
         # 加载当前配置
-        with open('config/config.yaml', 'r', encoding='utf-8') as f:
+        with open(os.path.join(APP_PATH, 'config', 'config.yaml'), 'r', encoding='utf-8') as f:
             current_config = yaml.safe_load(f)
             
         # 删除任务
@@ -307,7 +353,7 @@ def delete_task():
             del current_config['backup_tasks'][task_name]
             
             # 保存配置
-            with open('config/config.yaml', 'w', encoding='utf-8') as f:
+            with open(os.path.join(APP_PATH, 'config', 'config.yaml'), 'w', encoding='utf-8') as f:
                 yaml.dump(current_config, f, allow_unicode=True)
                 
             # 重新加载调度器
@@ -378,61 +424,6 @@ def get_stats():
                     day_stat['failed'] += 1
     
     return jsonify(stats)
-
-@app.route('/api/system_status')
-def get_system_status():
-    """获取系统运行状态"""
-    try:
-        # 直接使用interval参数获取CPU使用率
-        cpu_percent = psutil.cpu_percent(interval=1)  # 等待1秒获取准确值
-        cpu_cores = psutil.cpu_percent(interval=1, percpu=True)  # 获取每个核心的使用率
-        
-        # 获取内存信息
-        memory = psutil.virtual_memory()
-        
-        # 获取系统盘使用情况
-        system_drive = 'C:\\' if os.name == 'nt' else '/'
-        disk = psutil.disk_usage(system_drive)
-        
-        # 获取进程信息
-        process = psutil.Process()
-        process_info = {
-            'cpu_percent': process.cpu_percent(interval=1),  # 等待1秒获取准确值
-            'memory_percent': process.memory_percent(),
-            'threads': process.num_threads(),
-            'create_time': time.strftime('%Y-%m-%d %H:%M:%S', 
-                                       time.localtime(process.create_time()))
-        }
-        
-        status = {
-            'cpu_percent': round(cpu_percent, 1),
-            'cpu_cores': [round(x, 1) for x in cpu_cores],
-            'memory': {
-                'total': memory.total,
-                'used': memory.used,
-                'available': memory.available,
-                'percent': round(memory.percent, 1),
-                'cached': getattr(memory, 'cached', 0),
-                'buffers': getattr(memory, 'buffers', 0)
-            },
-            'disk': {
-                'total': disk.total,
-                'used': disk.used,
-                'free': disk.free,
-                'percent': round(disk.percent, 1)
-            },
-            'process': process_info,
-            'backup_running': False,
-            'system_time': time.strftime('%Y-%m-%d %H:%M:%S')
-        }
-        
-        # 检查是否有备份任务正在运行
-        if scheduler and scheduler.backup_manager:
-            status['backup_running'] = scheduler.is_backup_running()
-            
-        return jsonify(status)
-    except Exception as e:
-        return jsonify({'error': str(e)})
 
 def create_app():
     """创建并配置Flask应用"""

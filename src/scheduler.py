@@ -12,6 +12,41 @@ class BackupScheduler:
             config['backup_tasks']
         )
         self.logger = logging.getLogger(__name__)
+        # 添加任务运行状态跟踪
+        self.running_tasks = set()
+        
+    def _run_backup_task(self, task_name: str):
+        """运行备份任务"""
+        # 检查任务是否已在运行
+        if task_name in self.running_tasks:
+            self.logger.warning(f"任务 {task_name} 正在执行中，跳过本次执行")
+            return
+            
+        try:
+            # 标记任务开始运行
+            self.running_tasks.add(task_name)
+            
+            self.logger.info("=" * 50)
+            self.logger.info(f"开始执行调度任务: {task_name}")
+            self.logger.info(f"执行时间: {time.strftime('%Y-%m-%d %H:%M:%S')}")
+            
+            success = self.backup_manager.execute_backup(task_name)
+            
+            if success:
+                self.logger.info(f"调度任务 {task_name} 执行成功")
+            else:
+                self.logger.error(f"调度任务 {task_name} 执行失败")
+            self.logger.info("=" * 50)
+            
+        except Exception as e:
+            self.logger.error(f"执行任务 {task_name} 时发生错误: {str(e)}", exc_info=True)
+        finally:
+            # 任务完成后移除运行标记
+            self.running_tasks.discard(task_name)
+    
+    def is_backup_running(self) -> bool:
+        """检查是否有备份任务正在运行"""
+        return len(self.running_tasks) > 0
         
     def setup_schedules(self):
         """设置所有备份任务的调度"""
@@ -51,20 +86,6 @@ class BackupScheduler:
             except Exception as e:
                 self.logger.error(f"设置任务 {task_name} 的调度失败: {str(e)}", exc_info=True)
     
-    def _run_backup_task(self, task_name: str):
-        """运行备份任务"""
-        self.logger.info("=" * 50)
-        self.logger.info(f"开始执行调度任务: {task_name}")
-        self.logger.info(f"执行时间: {time.strftime('%Y-%m-%d %H:%M:%S')}")
-        
-        success = self.backup_manager.execute_backup(task_name)
-        
-        if success:
-            self.logger.info(f"调度任务 {task_name} 执行成功")
-        else:
-            self.logger.error(f"调度任务 {task_name} 执行失败")
-        self.logger.info("=" * 50)
-            
     def run(self):
         """运行调度器"""
         self.logger.info("启动备份调度器")
@@ -73,7 +94,7 @@ class BackupScheduler:
         while True:
             try:
                 schedule.run_pending()
-                time.sleep(1)  # 每秒检查一次待执行的任务
+                time.sleep(7200)  # 每7200秒（2小时）检查一次待执行的任务
             except Exception as e:
                 self.logger.error(f"调度器运行出错: {str(e)}", exc_info=True)
                 time.sleep(5)  # 发生错误时等待5秒后继续 

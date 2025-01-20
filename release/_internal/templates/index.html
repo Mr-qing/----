@@ -785,31 +785,13 @@
                 <h1>自动备份系统</h1>
                 <div class="status-panel">
                     <div class="status-item">
-                        <div class="status-item-title">系统状态</div>
-                        <div class="status-item-value" id="system-status">
-                            <i class="mdi mdi-check-circle"></i> 正常运行
-                        </div>
-                    </div>
-                    <div class="status-item">
                         <div class="status-item-title">最后备份时间</div>
                         <div class="status-item-value" id="last-backup-time">-</div>
                     </div>
                     <div class="status-item">
-                        <div class="status-item-title">CPU 使用率</div>
-                        <div class="status-item-value" id="cpuUsage">0%</div>
-                    </div>
-                    <div class="status-item">
-                        <div class="status-item-title">内存使用率</div>
-                        <div class="status-item-value" id="memoryUsage">0%</div>
-                    </div>
-                    <div class="status-item">
-                        <div class="status-item-title">磁盘使用率</div>
-                        <div class="status-item-value" id="diskUsage">0%</div>
-                    </div>
-                    <div class="status-item">
                         <div class="status-item-title">备份状态</div>
-                        <div class="status-item-value" id="backupStatus">
-                            <i class="mdi mdi-check-circle"></i> 空闲
+                        <div class="status-item-value">
+                            <i class="mdi mdi-check-circle"></i> 就绪
                         </div>
                     </div>
                 </div>
@@ -898,16 +880,6 @@
             <div id="historyList" class="history-list">
                 <!-- 历史记录将在这里动态插入 -->
             </div>
-        </div>
-
-        <div class="card">
-            <div class="card-header">
-                <h2>实时日志</h2>
-                <button class="button button-primary" onclick="clearLogs()">
-                    <i class="mdi mdi-delete"></i> 清除日志
-                </button>
-            </div>
-            <div class="log-container" id="logs"></div>
         </div>
     </div>
 
@@ -1070,13 +1042,6 @@
                 now.toLocaleString('zh-CN');
         }
 
-        // 定期更新
-        setInterval(updateLogs, 5000);
-        updateLogs();
-
-        // 初始化
-        updateLastBackupTime();
-
         // 显示添加服务器对话框
         function showAddServerDialog() {
             document.getElementById('dialogTitle').textContent = '添加服务器';
@@ -1176,20 +1141,29 @@
                 .then(response => response.json())
                 .then(data => {
                     const historyList = document.getElementById('historyList');
-                    if (!historyList) return;  // 添加检查
-
-                    historyList.innerHTML = data.map(record => `
-                        <div class="history-item">
-                            <div class="history-info">
-                                <div class="history-task">${record.task_name}</div>
-                                <div class="history-time">${record.time}</div>
-                            </div>
-                            <div class="history-details">${record.details}</div>
-                            <div class="history-status ${record.success ? 'success' : 'failed'}">
+                    if (!historyList) return;
+                    
+                    clearHistory();
+                    
+                    data.forEach(record => {
+                        const item = document.createElement('div');
+                        item.className = `history-item ${record.success ? 'success' : 'failed'}`;
+                        item.innerHTML = `
+                            <div class="history-time">${record.time}</div>
+                            <div class="history-task">${record.task_name}</div>
+                            <div class="history-status">
+                                <i class="mdi ${record.success ? 'mdi-check-circle' : 'mdi-alert-circle'}"></i>
                                 ${record.success ? '成功' : '失败'}
                             </div>
-                        </div>
-                    `).join('');
+                            <div class="history-details">${record.details}</div>
+                        `;
+                        historyList.appendChild(item);
+                    });
+                    
+                    // 更新最后备份时间
+                    if (data.length > 0) {
+                        document.getElementById('last-backup-time').textContent = data[0].time;
+                    }
                 });
         }
 
@@ -1251,8 +1225,8 @@
             });
         };
 
-        // 定期更新历史记录
-        setInterval(updateHistory, 10000);
+        // 定期更新历史记录（每30秒）
+        setInterval(updateHistory, 30000);
         updateHistory();
 
         let dailyChart = null;
@@ -1347,8 +1321,8 @@
                 });
         }
 
-        // 定期更新统计信息
-        setInterval(updateStats, 30000);
+        // 定期更新统计信息（每5分钟）
+        setInterval(updateStats, 300000);
         updateStats();
 
         function showLoading(element) {
@@ -1389,78 +1363,6 @@
                 historyList.innerHTML = '';
             }
         }
-
-        function updateSystemStatus() {
-            fetch('/api/system_status')
-                .then(response => response.json())
-                .then(data => {
-                    if (data.error) {
-                        console.error('获取系统状态失败:', data.error);
-                        return;
-                    }
-                    
-                    // 更新CPU使用率
-                    const cpuElement = document.getElementById('cpuUsage');
-                    if (cpuElement) {
-                        cpuElement.textContent = `${Math.round(data.cpu_percent)}%`;
-                        // 根据使用率改变颜色
-                        if (data.cpu_percent > 80) {
-                            cpuElement.style.color = '#f44336';  // 红色
-                        } else if (data.cpu_percent > 60) {
-                            cpuElement.style.color = '#ff9800';  // 橙色
-                        } else {
-                            cpuElement.style.color = '#4caf50';  // 绿色
-                        }
-                    }
-                    
-                    // 更新内存使用率
-                    const memoryElement = document.getElementById('memoryUsage');
-                    if (memoryElement) {
-                        memoryElement.textContent = `${Math.round(data.memory.percent)}%`;
-                        // 根据使用率改变颜色
-                        if (data.memory.percent > 80) {
-                            memoryElement.style.color = '#f44336';
-                        } else if (data.memory.percent > 60) {
-                            memoryElement.style.color = '#ff9800';
-                        } else {
-                            memoryElement.style.color = '#4caf50';
-                        }
-                    }
-                    
-                    // 更新磁盘使用率
-                    const diskElement = document.getElementById('diskUsage');
-                    if (diskElement) {
-                        diskElement.textContent = `${Math.round(data.disk.percent)}%`;
-                        // 根据使用率改变颜色
-                        if (data.disk.percent > 80) {
-                            diskElement.style.color = '#f44336';
-                        } else if (data.disk.percent > 60) {
-                            diskElement.style.color = '#ff9800';
-                        } else {
-                            diskElement.style.color = '#4caf50';
-                        }
-                    }
-                    
-                    // 更新备份状态
-                    const backupStatus = document.getElementById('backupStatus');
-                    if (backupStatus) {
-                        if (data.backup_running) {
-                            backupStatus.innerHTML = '<i class="mdi mdi-sync spin"></i> 备份中';
-                            backupStatus.classList.add('status-running');
-                        } else {
-                            backupStatus.innerHTML = '<i class="mdi mdi-check-circle"></i> 空闲';
-                            backupStatus.classList.remove('status-running');
-                        }
-                    }
-                })
-                .catch(error => {
-                    console.error('获取系统状态出错:', error);
-                });
-        }
-
-        // 更频繁地更新系统状态（每2秒）
-        setInterval(updateSystemStatus, 2000);
-        updateSystemStatus();
     </script>
 </body>
 </html> 

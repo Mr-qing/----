@@ -37,6 +37,18 @@ xcopy /E /I /Y config\*.* release\config\
 xcopy /E /I /Y src\templates\*.* release\templates\
 xcopy /E /I /Y src\static\*.* release\static\
 
+:: 确保目录存在并验证文件
+dir release\templates\index.html
+dir release\static
+dir release\config\config.yaml
+
+:: 如果验证失败则暂停
+if errorlevel 1 (
+    echo 文件复制验证失败！
+    pause
+    exit /b 1
+)
+
 :: 创建日志文件
 type nul > release\logs\backup.log
 

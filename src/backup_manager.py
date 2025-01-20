@@ -2,8 +2,18 @@ import os
 import time
 from typing import Dict
 import logging
-from .sftp_client import SFTPClient
-from .history import add_history_record
+import shutil
+
+# 添加项目根目录到 Python 路径
+import sys
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+if parent_dir not in sys.path:
+    sys.path.append(parent_dir)
+
+# 使用绝对导入
+from src.sftp_client import SFTPClient
+from src.history import add_history_record
 
 class BackupManager:
     def __init__(self, servers_config: Dict, task_config: Dict):
@@ -198,4 +208,21 @@ class BackupManager:
             if size_in_bytes < 1024.0:
                 return f"{size_in_bytes:.2f} {unit}"
             size_in_bytes /= 1024.0
-        return f"{size_in_bytes:.2f} PB" 
+        return f"{size_in_bytes:.2f} PB"
+
+if __name__ == "__main__":
+    # 测试代码
+    import yaml
+    
+    # 加载配置
+    with open("config/config.yaml", "r", encoding="utf-8") as f:
+        config = yaml.safe_load(f)
+    
+    # 创建管理器实例
+    manager = BackupManager(config["servers"], config["backup_tasks"])
+    
+    # 测试备份
+    for task_name in config["backup_tasks"]:
+        print(f"Testing backup task: {task_name}")
+        success = manager.execute_backup(task_name)
+        print(f"Backup result: {'Success' if success else 'Failed'}") 
