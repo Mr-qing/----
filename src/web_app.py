@@ -25,9 +25,16 @@ def run_scheduler():
 @app.route('/')
 def index():
     """主页"""
-    return render_template('index.html', 
-                         tasks=config['backup_tasks'],
-                         servers=config['servers'])
+    try:
+        # 加载最新的配置
+        with open('config/config.yaml', 'r', encoding='utf-8') as f:
+            current_config = yaml.safe_load(f)
+            
+        return render_template('index.html', 
+                             tasks=current_config['backup_tasks'],
+                             servers=current_config['servers'])
+    except Exception as e:
+        return f"Error loading configuration: {str(e)}"
 
 @app.route('/api/tasks')
 def get_tasks():

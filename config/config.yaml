@@ -1,5 +1,5 @@
 servers:
-  server1:
+  server8.129:
     host: "192.168.200.10"
     port: 222
     username: "qing"
@@ -14,7 +14,7 @@ servers:
 backup_tasks:
   task1:
     source_path: "C:/test_backup"  # 本地源目录
-    target_server: "server1"       # 目标服务器（远程）
+    target_server: "server8.129"   # 修改目标服务器名称
     target_path: "C:/test_backup"  # 远程目标目录
     schedule: "*/1 * * * *"        # 每分钟执行一次（用于测试）
     retry_times: 3
