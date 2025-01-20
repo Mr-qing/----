@@ -2,6 +2,7 @@ import yaml
 import os
 from src.logger import setup_logger
 from src.scheduler import BackupScheduler
+from src.web_app import create_app
 
 def load_config():
     """加载配置文件"""
@@ -29,4 +30,5 @@ def main():
         raise
 
 if __name__ == "__main__":
-    main() 
+    app = create_app()
+    app.run(host='0.0.0.0', port=5000, debug=True) 

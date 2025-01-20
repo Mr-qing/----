@@ -3,6 +3,7 @@ import time
 from typing import Dict
 import logging
 from .sftp_client import SFTPClient
+from .history import add_history_record
 
 class BackupManager:
     def __init__(self, servers_config: Dict, task_config: Dict):
@@ -54,7 +55,7 @@ class BackupManager:
         
     def execute_backup(self, task_name: str) -> bool:
         """执行指定的备份任务"""
-        self._reset_stats()  # 重置统计信息
+        self._reset_stats()
         self.logger.debug(f"开始执行备份任务: {task_name}")
         task = self.task_config.get(task_name)
         if not task:
@@ -74,26 +75,29 @@ class BackupManager:
         retry_interval = task.get('retry_interval', 300)
         
         success = False
-        while retry_count < max_retries:
-            try:
-                self.logger.debug(f"尝试执行备份 (第{retry_count + 1}次)")
-                success = self._perform_backup(
-                    task_name,
-                    target_server,
-                    task['source_path'],
-                    task['target_path']
-                )
-                if success:
-                    self.logger.info(f"备份任务 {task_name} 执行成功")
-                    break
-                    
-            except Exception as e:
-                self.logger.error(f"备份失败: {str(e)}", exc_info=True)
-                
-            retry_count += 1
-            if retry_count < max_retries:
-                self.logger.info(f"将在 {retry_interval} 秒后重试...")
-                time.sleep(retry_interval)
+        details = ""
+        try:
+            success = self._perform_backup(
+                task_name,
+                target_server,
+                task['source_path'],
+                task['target_path']
+            )
+            
+            details = (
+                f"总文件数: {self.backup_stats['total_files']}, "
+                f"成功: {self.backup_stats['success_files']}, "
+                f"失败: {self.backup_stats['failed_files']}, "
+                f"跳过: {self.backup_stats['skipped_files']}"
+            )
+            
+            # 添加历史记录
+            add_history_record(task_name, success, details)
+            
+        except Exception as e:
+            self.logger.error(f"备份失败: {str(e)}", exc_info=True)
+            details = f"错误: {str(e)}"
+            add_history_record(task_name, False, details)
         
         # 记录备份总结
         self._log_backup_summary(task_name)

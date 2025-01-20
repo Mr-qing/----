@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>自动备份系统</title>
+    <meta charset="utf-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .status {
+            display: flex;
+            gap: 20px;
+        }
+        .status-item {
+            background: rgba(255,255,255,0.1);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .task-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 20px;
+        }
+        .task-card {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border: 1px solid #eee;
+        }
+        .task-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .task-status {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .status-active {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        .status-inactive {
+            background: #ffebee;
+            color: #c62828;
+        }
+        .task-info {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .task-info p {
+            margin: 5px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .task-info span {
+            color: #666;
+        }
+        .log-container {
+            background: #1e1e1e;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            height: 500px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .log-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .button {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .button:hover {
+            background: #45a049;
+            transform: translateY(-1px);
+        }
+        .button-secondary {
+            background: #2196F3;
+        }
+        .button-secondary:hover {
+            background: #1976D2;
+        }
+        .log-entry {
+            padding: 5px 0;
+            border-bottom: 1px solid #333;
+        }
+        .log-error {
+            color: #ff5252;
+        }
+        .log-success {
+            color: #69f0ae;
+        }
+        .log-warning {
+            color: #ffd740;
+        }
+        .progress-bar {
+            height: 4px;
+            width: 100%;
+            background: #eee;
+            margin-top: 10px;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .progress-value {
+            height: 100%;
+            background: #4CAF50;
+            width: 0;
+            transition: width 0.3s;
+        }
+        .server-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .server-card {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #eee;
+        }
+        .server-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .server-status {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+        .server-info {
+            margin: 10px 0;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .server-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            width: 400px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+        .button-danger {
+            background: #f44336;
+        }
+        .button-danger:hover {
+            background: #d32f2f;
+        }
+        .history-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .history-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .history-success {
+            color: #4CAF50;
+        }
+        .history-failed {
+            color: #f44336;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .stat-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .stat-title {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .chart-container {
+            margin-top: 20px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>自动备份系统</h1>
+            <div class="status">
+                <div class="status-item">
+                    <div>运行状态</div>
+                    <div id="system-status">正常运行中</div>
+                </div>
+                <div class="status-item">
+                    <div>最后备份时间</div>
+                    <div id="last-backup-time">-</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>备份任务</h2>
+                <button class="button" onclick="showAddTaskDialog()">添加任务</button>
+            </div>
+            <div class="task-list">
+                {% for name, task in tasks.items() %}
+                <div class="task-card" id="task-{{ name }}">
+                    <div class="task-header">
+                        <h3>{{ name }}</h3>
+                        <span class="task-status status-active">已启用</span>
+                    </div>
+                    <div class="task-info">
+                        <p>源路径: <span>{{ task.source_path }}</span></p>
+                        <p>目标服务器: <span>{{ task.target_server }}</span></p>
+                        <p>目标路径: <span>{{ task.target_path }}</span></p>
+                        <p>调度: <span>{{ task.schedule }}</span></p>
+                        <p>重试次数: <span>{{ task.retry_times }}</span></p>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-value" id="progress-{{ name }}"></div>
+                    </div>
+                    <div style="margin-top: 15px; display: flex; gap: 10px;">
+                        <button class="button" onclick="runBackup('{{ name }}')">立即执行</button>
+                        <button class="button button-secondary" onclick="viewTaskLogs('{{ name }}')">查看日志</button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="log-header">
+                <h2>实时日志</h2>
+                <button class="button button-secondary" onclick="clearLogs()">清除日志</button>
+            </div>
+            <div class="log-container" id="logs"></div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h2>服务器管理</h2>
+                <button class="button" onclick="showAddServerDialog()">添加服务器</button>
+            </div>
+            <div class="server-list">
+                {% for name, server in servers.items() %}
+                <div class="server-card" id="server-{{ name }}">
+                    <div class="server-header">
+                        <h3>{{ name }}</h3>
+                        <div class="server-status" id="status-{{ name }}">未连接</div>
+                    </div>
+                    <div class="server-info">
+                        <p>主机: <span>{{ server.host }}</span></p>
+                        <p>端口: <span>{{ server.port }}</span></p>
+                        <p>用户名: <span>{{ server.username }}</span></p>
+                    </div>
+                    <div class="server-actions">
+                        <button class="button button-secondary" onclick="testServer('{{ name }}')">测试连接</button>
+                        <button class="button" onclick="editServer('{{ name }}')">编辑</button>
+                        <button class="button button-danger" onclick="deleteServer('{{ name }}')">删除</button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- 添加服务器对话框 -->
+        <div id="serverDialog" class="modal" style="display: none;">
+            <div class="modal-content">
+                <h2 id="dialogTitle">添加服务器</h2>
+                <form id="serverForm">
+                    <input type="hidden" id="serverAction" value="add">
+                    <div class="form-group">
+                        <label>服务器名称:</label>
+                        <input type="text" id="serverName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>主机地址:</label>
+                        <input type="text" id="serverHost" required>
+                    </div>
+                    <div class="form-group">
+                        <label>端口:</label>
+                        <input type="number" id="serverPort" value="22" required>
+                    </div>
+                    <div class="form-group">
+                        <label>用户名:</label>
+                        <input type="text" id="serverUsername" required>
+                    </div>
+                    <div class="form-group">
+                        <label>密码:</label>
+                        <input type="password" id="serverPassword">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="button button-secondary" onclick="testServerConnection()">测试连接</button>
+                        <button type="submit" class="button">保存</button>
+                        <button type="button" class="button button-danger" onclick="closeServerDialog()">取消</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- 添加历史记录卡片 -->
+        <div class="card">
+            <h2>备份历史</h2>
+            <div class="history-list" id="historyList"></div>
+        </div>
+
+        <!-- 在历史记录前添加统计卡片 -->
+        <div class="card">
+            <h2>备份统计</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-title">总备份次数</div>
+                    <div class="stat-value" id="totalBackups">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">成功率</div>
+                    <div class="stat-value" id="successRate">0%</div>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="dailyChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="taskChart"></canvas>
+            </div>
+        </div>
+
+        <!-- 添加任务对话框 -->
+        <div id="taskDialog" class="modal" style="display: none;">
+            <div class="modal-content">
+                <h2 id="taskDialogTitle">添加任务</h2>
+                <form id="taskForm">
+                    <input type="hidden" id="taskAction" value="add">
+                    <div class="form-group">
+                        <label>任务名称:</label>
+                        <input type="text" id="taskName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>源路径:</label>
+                        <input type="text" id="sourcePath" required>
+                    </div>
+                    <div class="form-group">
+                        <label>目标服务器:</label>
+                        <select id="targetServer" required>
+                            {% for name, server in servers.items() %}
+                            <option value="{{ name }}">{{ name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>目标路径:</label>
+                        <input type="text" id="targetPath" required>
+                    </div>
+                    <div class="form-group">
+                        <label>调度:</label>
+                        <input type="text" id="schedule" required placeholder="*/5 * * * *">
+                        <small>Cron 格式，例如: */5 * * * * 表示每5分钟执行一次</small>
+                    </div>
+                    <div class="form-group">
+                        <label>重试次数:</label>
+                        <input type="number" id="retryTimes" value="3" required>
+                    </div>
+                    <div class="form-group">
+                        <label>重试间隔(秒):</label>
+                        <input type="number" id="retryInterval" value="30" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="button">保存</button>
+                        <button type="button" class="button button-danger" onclick="closeTaskDialog()">取消</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // 更新日志
+        function updateLogs() {
+            fetch('/api/logs')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.logs) {
+                        const logsDiv = document.getElementById('logs');
+                        const formattedLogs = data.logs.map(log => {
+                            let className = 'log-entry';
+                            if (log.includes('ERROR')) className += ' log-error';
+                            if (log.includes('SUCCESS') || log.includes('成功')) className += ' log-success';
+                            if (log.includes('WARNING')) className += ' log-warning';
+                            return `<div class="${className}">${log}</div>`;
+                        });
+                        logsDiv.innerHTML = formattedLogs.join('');
+                        logsDiv.scrollTop = logsDiv.scrollHeight;
+                    }
+                });
+        }
+
+        // 执行备份
+        function runBackup(taskName) {
+            const progressBar = document.getElementById(`progress-${taskName}`);
+            progressBar.style.width = '0%';
+            
+            fetch('/api/run_backup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({task_name: taskName})
+            })
+            .then(response => response.json())
+            .then(data => {
+                progressBar.style.width = '100%';
+                alert(data.message);
+                updateLastBackupTime();
+            })
+            .catch(error => {
+                progressBar.style.width = '0%';
+                alert('备份执行失败: ' + error);
+            });
+        }
+
+        // 查看任务日志
+        function viewTaskLogs(taskName) {
+            // 可以添加查看特定任务日志的功能
+            alert('查看任务日志功能开发中...');
+        }
+
+        // 清除日志
+        function clearLogs() {
+            document.getElementById('logs').innerHTML = '';
+        }
+
+        // 更新最后备份时间
+        function updateLastBackupTime() {
+            const now = new Date();
+            document.getElementById('last-backup-time').textContent = 
+                now.toLocaleString('zh-CN');
+        }
+
+        // 定期更新
+        setInterval(updateLogs, 5000);
+        updateLogs();
+
+        // 初始化
+        updateLastBackupTime();
+
+        // 显示添加服务器对话框
+        function showAddServerDialog() {
+            document.getElementById('dialogTitle').textContent = '添加服务器';
+            document.getElementById('serverAction').value = 'add';
+            document.getElementById('serverForm').reset();
+            document.getElementById('serverDialog').style.display = 'flex';
+        }
+
+        // 显示编辑服务器对话框
+        function editServer(serverName) {
+            const server = servers[serverName];
+            document.getElementById('dialogTitle').textContent = '编辑服务器';
+            document.getElementById('serverAction').value = 'edit';
+            document.getElementById('serverName').value = serverName;
+            document.getElementById('serverHost').value = server.host;
+            document.getElementById('serverPort').value = server.port;
+            document.getElementById('serverUsername').value = server.username;
+            document.getElementById('serverDialog').style.display = 'flex';
+        }
+
+        // 关闭对话框
+        function closeServerDialog() {
+            document.getElementById('serverDialog').style.display = 'none';
+        }
+
+        // 测试服务器连接
+        function testServerConnection() {
+            const serverData = {
+                host: document.getElementById('serverHost').value,
+                port: document.getElementById('serverPort').value,
+                username: document.getElementById('serverUsername').value,
+                password: document.getElementById('serverPassword').value
+            };
+            
+            fetch('/api/servers/test', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(serverData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+            });
+        }
+
+        // 删除服务器
+        function deleteServer(serverName) {
+            if (!confirm(`确定要删除服务器 ${serverName} 吗？`)) return;
+            
+            fetch('/api/servers/delete', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: serverName })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    location.reload();
+                } else {
+                    alert(data.message);
+                }
+            });
+        }
+
+        // 处理表单提交
+        document.getElementById('serverForm').onsubmit = function(e) {
+            e.preventDefault();
+            
+            const action = document.getElementById('serverAction').value;
+            const serverData = {
+                name: document.getElementById('serverName').value,
+                host: document.getElementById('serverHost').value,
+                port: document.getElementById('serverPort').value,
+                username: document.getElementById('serverUsername').value,
+                password: document.getElementById('serverPassword').value
+            };
+            
+            fetch(`/api/servers/${action}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(serverData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    location.reload();
+                } else {
+                    alert(data.message);
+                }
+            });
+        };
+
+        // 更新历史记录
+        function updateHistory() {
+            fetch('/api/history')
+                .then(response => response.json())
+                .then(data => {
+                    const historyList = document.getElementById('historyList');
+                    historyList.innerHTML = data.map(record => `
+                        <div class="history-item">
+                            <div>
+                                <strong>${record.task_name}</strong>
+                                <span>${record.time}</span>
+                            </div>
+                            <div class="history-${record.success ? 'success' : 'failed'}">
+                                ${record.success ? '成功' : '失败'}
+                            </div>
+                            <div>${record.details}</div>
+                        </div>
+                    `).join('');
+                });
+        }
+
+        // 显示添加任务对话框
+        function showAddTaskDialog() {
+            document.getElementById('taskDialogTitle').textContent = '添加任务';
+            document.getElementById('taskAction').value = 'add';
+            document.getElementById('taskForm').reset();
+            document.getElementById('taskDialog').style.display = 'flex';
+        }
+
+        // 显示编辑任务对话框
+        function editTask(taskName) {
+            const task = tasks[taskName];
+            document.getElementById('taskDialogTitle').textContent = '编辑任务';
+            document.getElementById('taskAction').value = 'edit';
+            document.getElementById('taskName').value = taskName;
+            document.getElementById('sourcePath').value = task.source_path;
+            document.getElementById('targetServer').value = task.target_server;
+            document.getElementById('targetPath').value = task.target_path;
+            document.getElementById('schedule').value = task.schedule;
+            document.getElementById('retryTimes').value = task.retry_times;
+            document.getElementById('retryInterval').value = task.retry_interval;
+            document.getElementById('taskDialog').style.display = 'flex';
+        }
+
+        // 关闭任务对话框
+        function closeTaskDialog() {
+            document.getElementById('taskDialog').style.display = 'none';
+        }
+
+        // 处理任务表单提交
+        document.getElementById('taskForm').onsubmit = function(e) {
+            e.preventDefault();
+            
+            const action = document.getElementById('taskAction').value;
+            const taskData = {
+                name: document.getElementById('taskName').value,
+                source_path: document.getElementById('sourcePath').value,
+                target_server: document.getElementById('targetServer').value,
+                target_path: document.getElementById('targetPath').value,
+                schedule: document.getElementById('schedule').value,
+                retry_times: parseInt(document.getElementById('retryTimes').value),
+                retry_interval: parseInt(document.getElementById('retryInterval').value)
+            };
+            
+            fetch(`/api/tasks/${action}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(taskData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    location.reload();
+                } else {
+                    alert(data.message);
+                }
+            });
+        };
+
+        // 定期更新历史记录
+        setInterval(updateHistory, 10000);
+        updateHistory();
+
+        let dailyChart = null;
+        let taskChart = null;
+
+        function updateStats() {
+            fetch('/api/stats')
+                .then(response => response.json())
+                .then(data => {
+                    // 更新统计卡片
+                    document.getElementById('totalBackups').textContent = data.total_backups;
+                    document.getElementById('successRate').textContent = 
+                        data.success_rate.toFixed(1) + '%';
+                    
+                    // 更新每日统计图表
+                    const dates = Object.keys(data.daily_stats).reverse();
+                    const successData = dates.map(date => data.daily_stats[date].success);
+                    const failedData = dates.map(date => data.daily_stats[date].failed);
+                    
+                    if (dailyChart) dailyChart.destroy();
+                    dailyChart = new Chart(document.getElementById('dailyChart'), {
+                        type: 'bar',
+                        data: {
+                            labels: dates,
+                            datasets: [
+                                {
+                                    label: '成功',
+                                    data: successData,
+                                    backgroundColor: '#4CAF50'
+                                },
+                                {
+                                    label: '失败',
+                                    data: failedData,
+                                    backgroundColor: '#f44336'
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: '每日备份统计'
+                                }
+                            },
+                            scales: {
+                                x: { stacked: true },
+                                y: { stacked: true }
+                            }
+                        }
+                    });
+                    
+                    // 更新任务统计图表
+                    const tasks = Object.keys(data.task_stats);
+                    const taskSuccess = tasks.map(task => data.task_stats[task].success);
+                    const taskFailed = tasks.map(task => data.task_stats[task].failed);
+                    
+                    if (taskChart) taskChart.destroy();
+                    taskChart = new Chart(document.getElementById('taskChart'), {
+                        type: 'bar',
+                        data: {
+                            labels: tasks,
+                            datasets: [
+                                {
+                                    label: '成功',
+                                    data: taskSuccess,
+                                    backgroundColor: '#4CAF50'
+                                },
+                                {
+                                    label: '失败',
+                                    data: taskFailed,
+                                    backgroundColor: '#f44336'
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: '任务备份统计'
+                                }
+                            },
+                            scales: {
+                                x: { stacked: true },
+                                y: { stacked: true }
+                            }
+                        }
+                    });
+                });
+        }
+
+        // 定期更新统计信息
+        setInterval(updateStats, 30000);
+        updateStats();
+    </script>
+</body>
+</html> 
