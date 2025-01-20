@@ -2,7 +2,7 @@ import schedule
 import time
 from typing import Dict
 import logging
-from .backup_manager import BackupManager
+from src.backup_manager import BackupManager
 
 class BackupScheduler:
     def __init__(self, config: Dict):

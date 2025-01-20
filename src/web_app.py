@@ -1,13 +1,32 @@
+import warnings
+warnings.filterwarnings(
+    action='ignore',
+    message='TripleDES has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.TripleDES'
+)
+
 from flask import Flask, render_template, jsonify, request
 import yaml
 import os
 import threading
-from .scheduler import BackupScheduler
-from .logger import setup_logger
-from .history import get_history, backup_history  # 从history模块导入
 import time
+import psutil
+import sys
 
-app = Flask(__name__)
+# 添加项目根目录到 Python 路径
+import sys
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.append(parent_dir)
+
+# 使用绝对导入
+from src.scheduler import BackupScheduler
+from src.logger import setup_logger
+from src.history import get_history, backup_history
+from src.sftp_client import SFTPClient
+
+app = Flask(__name__, 
+           template_folder=os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), 'templates'),
+           static_folder=os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), 'static'))
 scheduler = None
 config = None
 
@@ -176,7 +195,6 @@ def test_server():
             return jsonify({'success': False, 'message': '缺少必要的服务器信息'})
             
         # 创建临时SFTP客户端测试连接
-        from .sftp_client import SFTPClient
         client = SFTPClient(
             host=server_data['host'],
             port=int(server_data['port']),
@@ -360,6 +378,61 @@ def get_stats():
                     day_stat['failed'] += 1
     
     return jsonify(stats)
+
+@app.route('/api/system_status')
+def get_system_status():
+    """获取系统运行状态"""
+    try:
+        # 直接使用interval参数获取CPU使用率
+        cpu_percent = psutil.cpu_percent(interval=1)  # 等待1秒获取准确值
+        cpu_cores = psutil.cpu_percent(interval=1, percpu=True)  # 获取每个核心的使用率
+        
+        # 获取内存信息
+        memory = psutil.virtual_memory()
+        
+        # 获取系统盘使用情况
+        system_drive = 'C:\\' if os.name == 'nt' else '/'
+        disk = psutil.disk_usage(system_drive)
+        
+        # 获取进程信息
+        process = psutil.Process()
+        process_info = {
+            'cpu_percent': process.cpu_percent(interval=1),  # 等待1秒获取准确值
+            'memory_percent': process.memory_percent(),
+            'threads': process.num_threads(),
+            'create_time': time.strftime('%Y-%m-%d %H:%M:%S', 
+                                       time.localtime(process.create_time()))
+        }
+        
+        status = {
+            'cpu_percent': round(cpu_percent, 1),
+            'cpu_cores': [round(x, 1) for x in cpu_cores],
+            'memory': {
+                'total': memory.total,
+                'used': memory.used,
+                'available': memory.available,
+                'percent': round(memory.percent, 1),
+                'cached': getattr(memory, 'cached', 0),
+                'buffers': getattr(memory, 'buffers', 0)
+            },
+            'disk': {
+                'total': disk.total,
+                'used': disk.used,
+                'free': disk.free,
+                'percent': round(disk.percent, 1)
+            },
+            'process': process_info,
+            'backup_running': False,
+            'system_time': time.strftime('%Y-%m-%d %H:%M:%S')
+        }
+        
+        # 检查是否有备份任务正在运行
+        if scheduler and scheduler.backup_manager:
+            status['backup_running'] = scheduler.is_backup_running()
+            
+        return jsonify(status)
+    except Exception as e:
+        return jsonify({'error': str(e)})
 
 def create_app():
     """创建并配置Flask应用"""

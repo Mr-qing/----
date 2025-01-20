@@ -1035,3 +1035,738 @@
 2025-01-20 11:25:56,473 - src.scheduler - INFO - 调度任务 task1 执行成功
 2025-01-20 11:25:56,473 - src.scheduler - INFO - ==================================================
 2025-01-20 11:25:59,580 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:25:59] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 11:28:47,144 - src.scheduler - INFO - 成功设置任务 task1 的调度: */1 * * * *
+2025-01-20 11:28:47,144 - src.scheduler - INFO - 启动备份调度器
+2025-01-20 11:28:47,145 - src.scheduler - INFO - 等待执行调度任务...
+2025-01-20 11:28:47,171 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.50:5000
+2025-01-20 11:28:47,171 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-01-20 11:28:47,171 - werkzeug - INFO -  * Restarting with stat
+2025-01-20 11:28:47,526 - src.scheduler - INFO - 成功设置任务 task1 的调度: */1 * * * *
+2025-01-20 11:28:47,526 - src.scheduler - INFO - 启动备份调度器
+2025-01-20 11:28:47,526 - src.scheduler - INFO - 等待执行调度任务...
+2025-01-20 11:28:47,545 - werkzeug - WARNING -  * Debugger is active!
+2025-01-20 11:28:47,551 - werkzeug - INFO -  * Debugger PIN: 107-595-812
+2025-01-20 11:28:47,593 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:47] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 11:28:47,593 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:47] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 11:28:47,607 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:47] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 11:28:49,642 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:49] "GET / HTTP/1.1" 200 -
+2025-01-20 11:28:49,705 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:49] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 11:28:49,711 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:49] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 11:28:49,711 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:49] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 11:28:51,426 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:51] "GET / HTTP/1.1" 200 -
+2025-01-20 11:28:51,508 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:51] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 11:28:51,508 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:51] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 11:28:51,508 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:51] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 11:28:52,157 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:52] "GET / HTTP/1.1" 200 -
+2025-01-20 11:28:52,233 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:52] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 11:28:52,233 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:52] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 11:28:52,233 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:52] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 11:28:56,057 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:56] "GET / HTTP/1.1" 200 -
+2025-01-20 11:28:56,138 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:56] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 11:28:56,139 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:56] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 11:28:56,140 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:56] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 11:28:56,587 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:56] "GET / HTTP/1.1" 200 -
+2025-01-20 11:28:56,669 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:56] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 11:28:56,669 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:56] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 11:28:56,669 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:56] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 11:28:57,102 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:57] "GET / HTTP/1.1" 200 -
+2025-01-20 11:28:57,215 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:57] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 11:28:57,215 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:57] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 11:28:57,215 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:57] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 11:28:57,473 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:57] "GET / HTTP/1.1" 200 -
+2025-01-20 11:28:57,587 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:57] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 11:28:57,587 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:57] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 11:28:57,587 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:57] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 11:28:57,851 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:57] "GET / HTTP/1.1" 200 -
+2025-01-20 11:28:57,929 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:57] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 11:28:57,929 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:57] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 11:28:57,929 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:57] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 11:28:58,206 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:58] "GET / HTTP/1.1" 200 -
+2025-01-20 11:28:58,307 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:58] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 11:28:58,307 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:58] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 11:28:58,307 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 11:28:58] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:41:46,441 - src.scheduler - INFO - 成功设置任务 task1 的调度: */1 * * * *
+2025-01-20 13:41:46,442 - src.scheduler - INFO - 启动备份调度器
+2025-01-20 13:41:46,442 - src.scheduler - INFO - 等待执行调度任务...
+2025-01-20 13:41:46,469 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.50:5000
+2025-01-20 13:41:46,469 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-01-20 13:41:46,469 - werkzeug - INFO -  * Restarting with stat
+2025-01-20 13:41:46,929 - src.scheduler - INFO - 成功设置任务 task1 的调度: */1 * * * *
+2025-01-20 13:41:46,929 - src.scheduler - INFO - 启动备份调度器
+2025-01-20 13:41:46,929 - src.scheduler - INFO - 等待执行调度任务...
+2025-01-20 13:41:46,946 - werkzeug - WARNING -  * Debugger is active!
+2025-01-20 13:41:46,949 - werkzeug - INFO -  * Debugger PIN: 107-595-812
+2025-01-20 13:41:46,996 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:46] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:41:46,996 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:46] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:41:47,001 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:47] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:41:47,006 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:47] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:41:49,061 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:49] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:41:50,101 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:50] "GET / HTTP/1.1" 200 -
+2025-01-20 13:41:50,194 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:50] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:41:50,200 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:50] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:41:50,201 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:50] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:41:51,208 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:51] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:41:52,857 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:52] "GET / HTTP/1.1" 200 -
+2025-01-20 13:41:52,934 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:52] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:41:52,934 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:52] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:41:52,934 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:52] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:41:53,064 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:53] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-01-20 13:41:53,258 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:53] "GET / HTTP/1.1" 200 -
+2025-01-20 13:41:53,323 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:53] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:41:53,323 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:53] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:41:53,326 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:53] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:41:53,601 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:53] "GET / HTTP/1.1" 200 -
+2025-01-20 13:41:53,652 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:53] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:41:53,656 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:53] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:41:53,657 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:53] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:41:53,857 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:53] "GET / HTTP/1.1" 200 -
+2025-01-20 13:41:53,909 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:53] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:41:53,909 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:53] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:41:53,909 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:53] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:41:53,947 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:53] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:41:54,086 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:54] "GET / HTTP/1.1" 200 -
+2025-01-20 13:41:54,164 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:54] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:41:54,166 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:54] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:41:54,166 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:54] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:41:54,335 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:54] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:41:54,337 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:54] "GET / HTTP/1.1" 200 -
+2025-01-20 13:41:54,416 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:54] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:41:54,416 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:54] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:41:54,416 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:54] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:41:54,664 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:54] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:41:54,922 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:54] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:41:55,175 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:55] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:41:55,433 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:55] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:41:57,211 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:57] "GET / HTTP/1.1" 200 -
+2025-01-20 13:41:57,281 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:57] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:41:57,281 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:57] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:41:57,281 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:57] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:41:57,561 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:57] "GET / HTTP/1.1" 200 -
+2025-01-20 13:41:57,617 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:57] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:41:57,618 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:57] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:41:57,620 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:57] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:41:57,804 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:57] "GET / HTTP/1.1" 200 -
+2025-01-20 13:41:57,865 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:57] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:41:57,865 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:57] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:41:57,871 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:57] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:41:57,989 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:57] "GET / HTTP/1.1" 200 -
+2025-01-20 13:41:58,041 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:58] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:41:58,041 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:58] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:41:58,041 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:58] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:41:58,268 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:58] "GET / HTTP/1.1" 200 -
+2025-01-20 13:41:58,296 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:58] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:41:58,382 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:58] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:41:58,382 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:58] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:41:58,385 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:58] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:41:58,539 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:58] "GET / HTTP/1.1" 200 -
+2025-01-20 13:41:58,602 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:58] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:41:58,605 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:58] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:41:58,605 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:58] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:41:58,631 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:58] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:41:58,880 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:58] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:41:59,053 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:59] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:41:59,388 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:59] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:41:59,616 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:41:59] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:42:03,853 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:42:03] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:42:04,871 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:42:04] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:42:09,393 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:42:09] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:42:09,400 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:42:09] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:42:10,405 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:42:10] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:00,080 - src.scheduler - INFO - 成功设置任务 task1 的调度: */1 * * * *
+2025-01-20 13:43:00,080 - src.scheduler - INFO - 启动备份调度器
+2025-01-20 13:43:00,080 - src.scheduler - INFO - 等待执行调度任务...
+2025-01-20 13:43:00,110 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.50:5000
+2025-01-20 13:43:00,111 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-01-20 13:43:00,112 - werkzeug - INFO -  * Restarting with stat
+2025-01-20 13:43:00,475 - src.scheduler - INFO - 成功设置任务 task1 的调度: */1 * * * *
+2025-01-20 13:43:00,476 - src.scheduler - INFO - 启动备份调度器
+2025-01-20 13:43:00,476 - src.scheduler - INFO - 等待执行调度任务...
+2025-01-20 13:43:00,490 - werkzeug - WARNING -  * Debugger is active!
+2025-01-20 13:43:00,495 - werkzeug - INFO -  * Debugger PIN: 107-595-812
+2025-01-20 13:43:00,537 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:00] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:00,542 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:00] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:00,543 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:00] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:43:00,546 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:00] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:43:00,547 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:00] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:43:01,026 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:01] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:01,026 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:01] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:43:02,126 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:02] "GET / HTTP/1.1" 200 -
+2025-01-20 13:43:02,197 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:02] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:43:02,197 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:02] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:02,198 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:02] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:43:02,200 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:02] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:43:02,216 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:02] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-01-20 13:43:02,800 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:02] "GET / HTTP/1.1" 200 -
+2025-01-20 13:43:02,862 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:02] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:43:02,862 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:02] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:43:02,862 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:02] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:02,870 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:02] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:43:03,104 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:03] "GET / HTTP/1.1" 200 -
+2025-01-20 13:43:03,178 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:03] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:43:03,178 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:03] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:43:03,178 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:03] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:43:03,192 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:03] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:03,330 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:03] "GET / HTTP/1.1" 200 -
+2025-01-20 13:43:03,393 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:03] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:43:03,393 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:03] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:43:03,393 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:03] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:03,393 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:03] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:43:03,536 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:03] "GET / HTTP/1.1" 200 -
+2025-01-20 13:43:03,615 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:03] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:43:03,615 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:03] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:43:03,618 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:03] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:43:03,618 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:03] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:03,792 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:03] "GET / HTTP/1.1" 200 -
+2025-01-20 13:43:03,869 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:03] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:43:03,869 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:03] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:43:03,869 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:03] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:43:03,873 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:03] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:06,025 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:06] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:08,056 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:08] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:09,048 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:09] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:43:10,057 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:10] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:12,271 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:12] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:13,945 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:13] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:43:14,953 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:14] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:14,954 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:14] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:43:17,195 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:17] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:19,200 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:19] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:20,199 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:20] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:43:21,222 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:21] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:23,243 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:23] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:24,232 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:24] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:43:25,257 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:25] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:43:25,257 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:25] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:27,269 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:27] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:29,282 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:29] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:30,278 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:30] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:43:31,305 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:31] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:33,312 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:33] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:34,308 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:34] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:43:34,308 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:34] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:43:35,321 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:35] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:43:35,321 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:35] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:37,365 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:37] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:43:39,340 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:43:39] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:46:37,147 - src.scheduler - INFO - 成功设置任务 task1 的调度: */1 * * * *
+2025-01-20 13:46:37,148 - src.scheduler - INFO - 启动备份调度器
+2025-01-20 13:46:37,148 - src.scheduler - INFO - 等待执行调度任务...
+2025-01-20 13:46:37,181 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.50:5000
+2025-01-20 13:46:37,182 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-01-20 13:46:37,184 - werkzeug - INFO -  * Restarting with stat
+2025-01-20 13:46:37,602 - src.scheduler - INFO - 成功设置任务 task1 的调度: */1 * * * *
+2025-01-20 13:46:37,603 - src.scheduler - INFO - 启动备份调度器
+2025-01-20 13:46:37,604 - src.scheduler - INFO - 等待执行调度任务...
+2025-01-20 13:46:37,618 - werkzeug - WARNING -  * Debugger is active!
+2025-01-20 13:46:37,623 - werkzeug - INFO -  * Debugger PIN: 107-595-812
+2025-01-20 13:46:37,668 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:37] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:46:37,670 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:37] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:46:37,672 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:37] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:46:37,675 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:37] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:46:37,772 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:37] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:46:37,775 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:37] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:46:37,778 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:37] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:46:37,780 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:37] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:46:37,783 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:37] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:46:38,001 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:38] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:46:38,104 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:38] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:46:40,200 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:40] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:46:40,562 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:40] "GET / HTTP/1.1" 200 -
+2025-01-20 13:46:40,644 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:40] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:46:40,644 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:40] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:46:40,644 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:40] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:46:40,751 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:40] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:46:41,314 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:41] "GET / HTTP/1.1" 200 -
+2025-01-20 13:46:41,382 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:41] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:46:41,383 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:41] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:46:41,385 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:41] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:46:41,488 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:41] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:46:41,664 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:41] "GET / HTTP/1.1" 200 -
+2025-01-20 13:46:41,727 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:41] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:46:41,728 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:41] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:46:41,729 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:41] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:46:41,830 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:41] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:46:41,891 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:41] "GET / HTTP/1.1" 200 -
+2025-01-20 13:46:41,944 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:41] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:46:41,945 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:41] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:46:41,946 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:41] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:46:42,051 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:42] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:46:44,106 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:44] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:46:44,951 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:44] "GET / HTTP/1.1" 200 -
+2025-01-20 13:46:45,035 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:45] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:46:45,036 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:45] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:46:45,038 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:45] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:46:45,139 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:45] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:46:45,149 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:45] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-01-20 13:46:47,235 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:47] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:46:49,251 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:49] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:46:50,066 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:50] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:46:51,272 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:51] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:46:53,274 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:53] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:46:55,175 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:55] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:46:55,175 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:55] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:46:55,298 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:55] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:46:57,285 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:57] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:46:59,528 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:46:59] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:47:00,542 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:47:00] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:47:01,691 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:47:01] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:07,220 - src.scheduler - INFO - 成功设置任务 task1 的调度: */1 * * * *
+2025-01-20 13:48:07,220 - src.scheduler - INFO - 启动备份调度器
+2025-01-20 13:48:07,221 - src.scheduler - INFO - 等待执行调度任务...
+2025-01-20 13:48:07,250 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.50:5000
+2025-01-20 13:48:07,250 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-01-20 13:48:07,251 - werkzeug - INFO -  * Restarting with stat
+2025-01-20 13:48:07,627 - src.scheduler - INFO - 成功设置任务 task1 的调度: */1 * * * *
+2025-01-20 13:48:07,636 - src.scheduler - INFO - 启动备份调度器
+2025-01-20 13:48:07,636 - src.scheduler - INFO - 等待执行调度任务...
+2025-01-20 13:48:07,649 - werkzeug - WARNING -  * Debugger is active!
+2025-01-20 13:48:07,655 - werkzeug - INFO -  * Debugger PIN: 107-595-812
+2025-01-20 13:48:07,693 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:07] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:07,699 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:07] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:07,699 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:07] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:07,703 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:07] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:08,200 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:08] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:08,204 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:08] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:08,207 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:08] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:08,213 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:08] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:08,958 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:08] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:10,122 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:10] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:10,184 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:10] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:48:10,190 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:10] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:10,191 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:10] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:10,592 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:10] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:10,650 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:10] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:48:10,651 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:10] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:10,652 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:10] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:10,693 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:10] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:11,102 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:11] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:11,153 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:11] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:11,184 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:11] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:11,205 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:11] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:11,325 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:11] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:11,446 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:11] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:48:11,446 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:11] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:11,450 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:11] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:11,705 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:11] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:11,786 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:11] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:48:11,786 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:11] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:11,793 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:11] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:11,953 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:11] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:12,014 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:12] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:12,094 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:12] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:48:12,095 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:12] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:12,095 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:12] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:12,293 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:12] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:12,598 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:12] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:13,431 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:13] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:13,522 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:13] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:48:13,522 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:13] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:13,522 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:13] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:13,831 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:13] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:13,911 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:13] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:48:13,913 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:13] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:13,914 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:13] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:14,026 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:14] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:14,102 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:14] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:14,160 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:14] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:48:14,161 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:14] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:14,164 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:14] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:14,416 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:14] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:14,662 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:14] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:16,825 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:16] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:18,839 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:18] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:19,177 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:19] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:20,849 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:20] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:22,929 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:22] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:23,608 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:23] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:23,677 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:23] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:23,677 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:23] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:48:23,683 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:23] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:24,151 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:24] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:24,186 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:24] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:24,220 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:24] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:48:24,221 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:24] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:24,223 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:24] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:24,509 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:24] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:24,567 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:24] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:48:24,568 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:24] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:24,569 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:24] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:24,723 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:24] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:24,804 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:24] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:24,880 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:24] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:24,880 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:24] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:24,880 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:24] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:48:25,019 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:25] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:25,074 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:25] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:25,105 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:25] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:48:25,108 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:25] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:25,111 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:25] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:25,385 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:25] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:25,487 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:25] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:25,539 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:25] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:48:25,539 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:25] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:25,539 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:25] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:25,611 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:25] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:26,044 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:26] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:26,156 - src.backup_manager - INFO - 开始备份目录: C:/test_backup -> C:/test_backup
+2025-01-20 13:48:26,198 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_for_Windows_9.8)
+2025-01-20 13:48:26,333 - paramiko.transport - INFO - Authentication (password) successful!
+2025-01-20 13:48:26,518 - paramiko.transport.sftp - INFO - [chan 0] Opened sftp connection (server version 3)
+2025-01-20 13:48:26,518 - src.sftp_client - INFO - 成功连接到服务器 192.168.200.10
+2025-01-20 13:48:26,528 - src.sftp_client - INFO - 文件已是最新版本，跳过: C:/test_backup\1.txt
+2025-01-20 13:48:26,533 - src.sftp_client - INFO - 文件已是最新版本，跳过: C:/test_backup\test.txt
+2025-01-20 13:48:26,533 - src.backup_manager - INFO - 目录备份完成: C:/test_backup
+2025-01-20 13:48:26,533 - src.backup_manager - INFO - 成功备份 2/2 个文件
+2025-01-20 13:48:26,533 - paramiko.transport.sftp - INFO - [chan 0] sftp session closed.
+2025-01-20 13:48:26,533 - src.backup_manager - INFO - --------------------------------------------------
+2025-01-20 13:48:26,533 - src.backup_manager - INFO - 备份任务总结 - task1
+2025-01-20 13:48:26,533 - src.backup_manager - INFO - 开始时间: 2025-01-20 13:48:26
+2025-01-20 13:48:26,533 - src.backup_manager - INFO - 结束时间: 2025-01-20 13:48:26
+2025-01-20 13:48:26,533 - src.backup_manager - INFO - 总文件数: 2
+2025-01-20 13:48:26,533 - src.backup_manager - INFO - 总大小: 0.00 B
+2025-01-20 13:48:26,537 - src.backup_manager - INFO - 成功: 0 个文件
+2025-01-20 13:48:26,537 - src.backup_manager - INFO - 失败: 0 个文件
+2025-01-20 13:48:26,537 - src.backup_manager - INFO - 跳过: 2 个文件（已是最新）
+2025-01-20 13:48:26,537 - src.backup_manager - INFO - --------------------------------------------------
+2025-01-20 13:48:26,537 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:26] "POST /api/run_backup HTTP/1.1" 200 -
+2025-01-20 13:48:28,046 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:28] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:28,100 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:28] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:28,100 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:28] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:28,100 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:28] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:48:28,115 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:28] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:28,605 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:28] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:28,649 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:28] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:28,705 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:28] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:48:28,705 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:28] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:28,711 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:28] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:29,210 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:29] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:31,287 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:31] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:33,310 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:33] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:33,802 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:33] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:35,314 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:35] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:37,318 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:37] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:38,827 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:38] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:38,827 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:38] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:39,333 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:39] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:40,402 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:40] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:40,476 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:40] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:48:40,477 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:40] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:40,478 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:40] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:40,942 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:40] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:40,976 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:40] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:41,011 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:41] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:48:41,013 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:41] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:41,014 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:41] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:41,434 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:41] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:41,493 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:41] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:48:41,496 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:41] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:41,496 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:41] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:41,517 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:41] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:41,821 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:41] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:41,893 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:41] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:48:41,894 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:41] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:41,895 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:41] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:41,999 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:41] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:42,203 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:42] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:42,261 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:42] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:48:42,262 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:42] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:42,263 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:42] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:42,396 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:42] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:42,467 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:42] "GET / HTTP/1.1" 200 -
+2025-01-20 13:48:42,619 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:42] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:48:42,619 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:42] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:42,619 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:42] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:42,764 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:42] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:43,123 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:43] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:45,201 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:45] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:47,212 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:47] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:47,760 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:47] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:49,238 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:49] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:51,300 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:51] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:52,534 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:52] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:48:52,743 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:52] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:48:53,357 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:53] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:55,320 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:55] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:57,411 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:57] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:48:57,748 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:48:57] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:49:00,174 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:00] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:02,191 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:02] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:02,693 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:02] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:49:03,702 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:03] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:49:04,215 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:04] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:06,212 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:06] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:07,244 - src.scheduler - INFO - ==================================================
+2025-01-20 13:49:07,244 - src.scheduler - INFO - 开始执行调度任务: task1
+2025-01-20 13:49:07,244 - src.scheduler - INFO - 执行时间: 2025-01-20 13:49:07
+2025-01-20 13:49:07,244 - src.backup_manager - INFO - 开始备份目录: C:/test_backup -> C:/test_backup
+2025-01-20 13:49:07,289 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_for_Windows_9.8)
+2025-01-20 13:49:07,397 - paramiko.transport - INFO - Authentication (password) successful!
+2025-01-20 13:49:07,601 - paramiko.transport.sftp - INFO - [chan 0] Opened sftp connection (server version 3)
+2025-01-20 13:49:07,601 - src.sftp_client - INFO - 成功连接到服务器 192.168.200.10
+2025-01-20 13:49:07,610 - src.sftp_client - INFO - 文件已是最新版本，跳过: C:/test_backup\1.txt
+2025-01-20 13:49:07,614 - src.sftp_client - INFO - 文件已是最新版本，跳过: C:/test_backup\test.txt
+2025-01-20 13:49:07,615 - src.backup_manager - INFO - 目录备份完成: C:/test_backup
+2025-01-20 13:49:07,615 - src.backup_manager - INFO - 成功备份 2/2 个文件
+2025-01-20 13:49:07,615 - paramiko.transport.sftp - INFO - [chan 0] sftp session closed.
+2025-01-20 13:49:07,616 - src.backup_manager - INFO - --------------------------------------------------
+2025-01-20 13:49:07,616 - src.backup_manager - INFO - 备份任务总结 - task1
+2025-01-20 13:49:07,616 - src.backup_manager - INFO - 开始时间: 2025-01-20 13:49:07
+2025-01-20 13:49:07,616 - src.backup_manager - INFO - 结束时间: 2025-01-20 13:49:07
+2025-01-20 13:49:07,616 - src.backup_manager - INFO - 总文件数: 2
+2025-01-20 13:49:07,617 - src.backup_manager - INFO - 总大小: 0.00 B
+2025-01-20 13:49:07,617 - src.backup_manager - INFO - 成功: 0 个文件
+2025-01-20 13:49:07,617 - src.backup_manager - INFO - 失败: 0 个文件
+2025-01-20 13:49:07,617 - src.backup_manager - INFO - 跳过: 2 个文件（已是最新）
+2025-01-20 13:49:07,617 - src.backup_manager - INFO - --------------------------------------------------
+2025-01-20 13:49:07,618 - src.scheduler - INFO - 调度任务 task1 执行成功
+2025-01-20 13:49:07,618 - src.scheduler - INFO - ==================================================
+2025-01-20 13:49:07,659 - src.scheduler - INFO - ==================================================
+2025-01-20 13:49:07,659 - src.scheduler - INFO - 开始执行调度任务: task1
+2025-01-20 13:49:07,659 - src.scheduler - INFO - 执行时间: 2025-01-20 13:49:07
+2025-01-20 13:49:07,659 - src.backup_manager - INFO - 开始备份目录: C:/test_backup -> C:/test_backup
+2025-01-20 13:49:07,720 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_for_Windows_9.8)
+2025-01-20 13:49:07,887 - paramiko.transport - INFO - Authentication (password) successful!
+2025-01-20 13:49:08,094 - paramiko.transport.sftp - INFO - [chan 0] Opened sftp connection (server version 3)
+2025-01-20 13:49:08,094 - src.sftp_client - INFO - 成功连接到服务器 192.168.200.10
+2025-01-20 13:49:08,100 - src.sftp_client - INFO - 文件已是最新版本，跳过: C:/test_backup\1.txt
+2025-01-20 13:49:08,111 - src.sftp_client - INFO - 文件已是最新版本，跳过: C:/test_backup\test.txt
+2025-01-20 13:49:08,111 - src.backup_manager - INFO - 目录备份完成: C:/test_backup
+2025-01-20 13:49:08,111 - src.backup_manager - INFO - 成功备份 2/2 个文件
+2025-01-20 13:49:08,112 - paramiko.transport.sftp - INFO - [chan 0] sftp session closed.
+2025-01-20 13:49:08,113 - src.backup_manager - INFO - --------------------------------------------------
+2025-01-20 13:49:08,114 - src.backup_manager - INFO - 备份任务总结 - task1
+2025-01-20 13:49:08,114 - src.backup_manager - INFO - 开始时间: 2025-01-20 13:49:07
+2025-01-20 13:49:08,114 - src.backup_manager - INFO - 结束时间: 2025-01-20 13:49:08
+2025-01-20 13:49:08,114 - src.backup_manager - INFO - 总文件数: 2
+2025-01-20 13:49:08,114 - src.backup_manager - INFO - 总大小: 0.00 B
+2025-01-20 13:49:08,114 - src.backup_manager - INFO - 成功: 0 个文件
+2025-01-20 13:49:08,114 - src.backup_manager - INFO - 失败: 0 个文件
+2025-01-20 13:49:08,114 - src.backup_manager - INFO - 跳过: 2 个文件（已是最新）
+2025-01-20 13:49:08,114 - src.backup_manager - INFO - --------------------------------------------------
+2025-01-20 13:49:08,114 - src.scheduler - INFO - 调度任务 task1 执行成功
+2025-01-20 13:49:08,114 - src.scheduler - INFO - ==================================================
+2025-01-20 13:49:08,222 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:08] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:08,736 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:08] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:49:10,235 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:10] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:12,239 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:12] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:12,738 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:12] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:49:12,744 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:12] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:49:13,757 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:13] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:49:14,261 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:14] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:15,034 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Administrator\\Desktop\\运维工具\\src\\web_app.py', reloading
+2025-01-20 13:49:15,075 - werkzeug - INFO -  * Restarting with stat
+2025-01-20 13:49:15,462 - src.scheduler - INFO - 成功设置任务 task1 的调度: */1 * * * *
+2025-01-20 13:49:15,462 - src.scheduler - INFO - 启动备份调度器
+2025-01-20 13:49:15,462 - src.scheduler - INFO - 等待执行调度任务...
+2025-01-20 13:49:15,475 - werkzeug - WARNING -  * Debugger is active!
+2025-01-20 13:49:15,484 - werkzeug - INFO -  * Debugger PIN: 107-595-812
+2025-01-20 13:49:17,061 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:17] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:18,768 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:18] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:49:19,089 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:19] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:19,799 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:19] "GET / HTTP/1.1" 200 -
+2025-01-20 13:49:19,869 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:19] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:49:19,869 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:19] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:49:19,869 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:19] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:49:20,983 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:20] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:21,015 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:21] "GET / HTTP/1.1" 200 -
+2025-01-20 13:49:21,075 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:21] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:21,078 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:21] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:49:21,080 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:21] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:49:21,080 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:21] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:49:21,570 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:21] "GET / HTTP/1.1" 200 -
+2025-01-20 13:49:21,642 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:21] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:49:21,642 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:21] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:49:21,642 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:21] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:49:22,048 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:22] "GET / HTTP/1.1" 200 -
+2025-01-20 13:49:22,113 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:22] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:49:22,113 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:22] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:49:22,120 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:22] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:49:22,287 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:22] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:22,848 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:22] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:23,427 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:23] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:23,590 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:23] "GET / HTTP/1.1" 200 -
+2025-01-20 13:49:23,644 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:23] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:49:23,645 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:23] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:49:23,646 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:23] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:49:23,914 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:23] "GET / HTTP/1.1" 200 -
+2025-01-20 13:49:23,973 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:23] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:49:23,975 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:23] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:49:23,975 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:23] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:49:24,852 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:24] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:25,384 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:25] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:27,186 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:27] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:29,850 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:29] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:49:30,007 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:30] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:32,067 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:32] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:34,036 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:34] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:49:34,077 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:34] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:35,056 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:35] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:49:36,267 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:36] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:38,592 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:38] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:40,054 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:40] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:49:40,257 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:40] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:42,371 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:42] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:44,156 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:44] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:49:44,279 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:44] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:45,084 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:45] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:49:46,289 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:46] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:48,295 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:48] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:50,173 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:50] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:49:50,307 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:50] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:52,385 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:52] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:54,187 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:54] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:49:54,187 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:54] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:49:54,392 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:54] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:55,191 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:55] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:49:56,396 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:56] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:49:58,497 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:49:58] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:00,202 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:00] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:50:00,399 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:00] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:00,998 - werkzeug - INFO -  * Detected change in 'c:\\Users\\Administrator\\Desktop\\运维工具\\src\\web_app.py', reloading
+2025-01-20 13:50:01,035 - werkzeug - INFO -  * Restarting with stat
+2025-01-20 13:50:01,445 - src.scheduler - INFO - 成功设置任务 task1 的调度: */1 * * * *
+2025-01-20 13:50:01,446 - src.scheduler - INFO - 启动备份调度器
+2025-01-20 13:50:01,447 - src.scheduler - INFO - 等待执行调度任务...
+2025-01-20 13:50:01,460 - werkzeug - WARNING -  * Debugger is active!
+2025-01-20 13:50:01,467 - werkzeug - INFO -  * Debugger PIN: 107-595-812
+2025-01-20 13:50:03,508 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:03] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:03,908 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:03] "GET / HTTP/1.1" 200 -
+2025-01-20 13:50:03,965 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:03] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:50:03,965 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:03] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:50:03,965 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:03] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:50:04,582 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:04] "GET / HTTP/1.1" 200 -
+2025-01-20 13:50:04,637 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:04] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:50:04,638 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:04] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:50:04,638 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:04] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:50:04,806 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:04] "GET / HTTP/1.1" 200 -
+2025-01-20 13:50:04,861 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:04] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:50:04,861 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:04] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:50:04,864 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:04] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:50:05,007 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:05] "GET / HTTP/1.1" 200 -
+2025-01-20 13:50:05,063 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:05] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:50:05,063 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:05] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:50:05,067 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:05] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:50:05,223 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:05] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:05,976 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:05] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:06,643 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:06] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:06,871 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:06] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:07,070 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:07] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:07,643 - src.scheduler - INFO - ==================================================
+2025-01-20 13:50:07,643 - src.scheduler - INFO - 开始执行调度任务: task1
+2025-01-20 13:50:07,643 - src.scheduler - INFO - 执行时间: 2025-01-20 13:50:07
+2025-01-20 13:50:07,643 - src.backup_manager - INFO - 开始备份目录: C:/test_backup -> C:/test_backup
+2025-01-20 13:50:07,680 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_for_Windows_9.8)
+2025-01-20 13:50:07,821 - paramiko.transport - INFO - Authentication (password) successful!
+2025-01-20 13:50:08,030 - paramiko.transport.sftp - INFO - [chan 0] Opened sftp connection (server version 3)
+2025-01-20 13:50:08,030 - src.sftp_client - INFO - 成功连接到服务器 192.168.200.10
+2025-01-20 13:50:08,036 - src.sftp_client - INFO - 文件已是最新版本，跳过: C:/test_backup\1.txt
+2025-01-20 13:50:08,043 - src.sftp_client - INFO - 文件已是最新版本，跳过: C:/test_backup\test.txt
+2025-01-20 13:50:08,043 - src.backup_manager - INFO - 目录备份完成: C:/test_backup
+2025-01-20 13:50:08,043 - src.backup_manager - INFO - 成功备份 2/2 个文件
+2025-01-20 13:50:08,043 - paramiko.transport.sftp - INFO - [chan 0] sftp session closed.
+2025-01-20 13:50:08,043 - src.backup_manager - INFO - --------------------------------------------------
+2025-01-20 13:50:08,043 - src.backup_manager - INFO - 备份任务总结 - task1
+2025-01-20 13:50:08,043 - src.backup_manager - INFO - 开始时间: 2025-01-20 13:50:07
+2025-01-20 13:50:08,045 - src.backup_manager - INFO - 结束时间: 2025-01-20 13:50:08
+2025-01-20 13:50:08,045 - src.backup_manager - INFO - 总文件数: 2
+2025-01-20 13:50:08,045 - src.backup_manager - INFO - 总大小: 0.00 B
+2025-01-20 13:50:08,045 - src.backup_manager - INFO - 成功: 0 个文件
+2025-01-20 13:50:08,045 - src.backup_manager - INFO - 失败: 0 个文件
+2025-01-20 13:50:08,045 - src.backup_manager - INFO - 跳过: 2 个文件（已是最新）
+2025-01-20 13:50:08,045 - src.backup_manager - INFO - --------------------------------------------------
+2025-01-20 13:50:08,045 - src.scheduler - INFO - 调度任务 task1 执行成功
+2025-01-20 13:50:08,045 - src.scheduler - INFO - ==================================================
+2025-01-20 13:50:09,184 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:09] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:10,192 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:10] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:50:11,196 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:11] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:15,195 - src.scheduler - INFO - 成功设置任务 task1 的调度: */1 * * * *
+2025-01-20 13:50:15,198 - src.scheduler - INFO - 启动备份调度器
+2025-01-20 13:50:15,198 - src.scheduler - INFO - 等待执行调度任务...
+2025-01-20 13:50:15,225 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.50:5000
+2025-01-20 13:50:15,226 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-01-20 13:50:15,228 - werkzeug - INFO -  * Restarting with stat
+2025-01-20 13:50:15,606 - src.scheduler - INFO - 成功设置任务 task1 的调度: */1 * * * *
+2025-01-20 13:50:15,606 - src.scheduler - INFO - 启动备份调度器
+2025-01-20 13:50:15,606 - src.scheduler - INFO - 等待执行调度任务...
+2025-01-20 13:50:15,621 - werkzeug - WARNING -  * Debugger is active!
+2025-01-20 13:50:15,627 - werkzeug - INFO -  * Debugger PIN: 107-595-812
+2025-01-20 13:50:15,662 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:15] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:50:16,144 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:16] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:50:17,683 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:17] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:18,226 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:18] "GET / HTTP/1.1" 200 -
+2025-01-20 13:50:18,305 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:18] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:50:18,306 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:18] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:50:18,306 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:18] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:50:18,682 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:18] "GET / HTTP/1.1" 200 -
+2025-01-20 13:50:18,735 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:18] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:50:18,737 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:18] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:50:18,740 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:18] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:50:18,754 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:18] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:18,982 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:18] "GET / HTTP/1.1" 200 -
+2025-01-20 13:50:19,054 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:19] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:50:19,054 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:19] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:50:19,054 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:19] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:50:19,192 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:19] "GET / HTTP/1.1" 200 -
+2025-01-20 13:50:19,242 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:19] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:50:19,242 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:19] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:50:19,242 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:19] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:50:19,375 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:19] "GET / HTTP/1.1" 200 -
+2025-01-20 13:50:19,444 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:19] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:50:19,444 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:19] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:50:19,454 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:19] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:50:20,180 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:20] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:20,306 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:20] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:20,740 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:20] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:21,063 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:21] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:21,257 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:21] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:21,456 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:21] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:23,633 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:23] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:24,465 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:24] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:50:25,756 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:25] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:27,757 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:27] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:29,770 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:29] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:29,803 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:29] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:50:29,807 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:29] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:50:31,811 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:31] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:34,516 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:34] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:50:34,706 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:34] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:37,538 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:37] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:39,551 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:39] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:50:39,554 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:39] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:50:39,717 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:39] "GET /api/system_status HTTP/1.1" 200 -
+2025-01-20 13:50:54,706 - src.scheduler - INFO - 成功设置任务 task1 的调度: */1 * * * *
+2025-01-20 13:50:54,706 - src.scheduler - INFO - 启动备份调度器
+2025-01-20 13:50:54,706 - src.scheduler - INFO - 等待执行调度任务...
+2025-01-20 13:50:54,737 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.50:5000
+2025-01-20 13:50:54,737 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-01-20 13:50:54,737 - werkzeug - INFO -  * Restarting with stat
+2025-01-20 13:50:55,097 - src.scheduler - INFO - 成功设置任务 task1 的调度: */1 * * * *
+2025-01-20 13:50:55,101 - src.scheduler - INFO - 启动备份调度器
+2025-01-20 13:50:55,101 - src.scheduler - INFO - 等待执行调度任务...
+2025-01-20 13:50:55,115 - werkzeug - WARNING -  * Debugger is active!
+2025-01-20 13:50:55,118 - werkzeug - INFO -  * Debugger PIN: 107-595-812
+2025-01-20 13:50:55,164 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:55] "GET /api/logs HTTP/1.1" 200 -
+2025-01-20 13:50:55,164 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:55] "GET /api/stats HTTP/1.1" 200 -
+2025-01-20 13:50:55,167 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:55] "GET /api/history HTTP/1.1" 200 -
+2025-01-20 13:50:55,476 - werkzeug - INFO - 127.0.0.1 - - [20/Jan/2025 13:50:55] "GET /api/logs HTTP/1.1" 200 -

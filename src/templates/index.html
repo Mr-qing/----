@@ -4,7 +4,8 @@
     <title>自动备份系统</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/materialdesignicons.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
     <style>
         :root {
             --primary-color: #1976D2;
@@ -762,6 +763,19 @@
             background: #FFEBEE;
             color: var(--danger-color);
         }
+
+        .status-running {
+            color: var(--warning-color) !important;
+        }
+
+        .spin {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
@@ -779,6 +793,24 @@
                     <div class="status-item">
                         <div class="status-item-title">最后备份时间</div>
                         <div class="status-item-value" id="last-backup-time">-</div>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-item-title">CPU 使用率</div>
+                        <div class="status-item-value" id="cpuUsage">0%</div>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-item-title">内存使用率</div>
+                        <div class="status-item-value" id="memoryUsage">0%</div>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-item-title">磁盘使用率</div>
+                        <div class="status-item-value" id="diskUsage">0%</div>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-item-title">备份状态</div>
+                        <div class="status-item-value" id="backupStatus">
+                            <i class="mdi mdi-check-circle"></i> 空闲
+                        </div>
                     </div>
                 </div>
             </div>
@@ -962,11 +994,11 @@
     </div>
 
     <!-- 保持原有的脚本部分不变 -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/chart.min.js') }}"></script>
     <script>
         // 从服务器端传递的数据
-        const tasks = {{ tasks|tojson|safe }};
-        const servers = {{ servers|tojson|safe }};
+        var tasks = {{ tasks|tojson|safe }};
+        var servers = {{ servers|tojson|safe }};
 
         // 更新日志
         function updateLogs() {
@@ -1357,6 +1389,78 @@
                 historyList.innerHTML = '';
             }
         }
+
+        function updateSystemStatus() {
+            fetch('/api/system_status')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        console.error('获取系统状态失败:', data.error);
+                        return;
+                    }
+                    
+                    // 更新CPU使用率
+                    const cpuElement = document.getElementById('cpuUsage');
+                    if (cpuElement) {
+                        cpuElement.textContent = `${Math.round(data.cpu_percent)}%`;
+                        // 根据使用率改变颜色
+                        if (data.cpu_percent > 80) {
+                            cpuElement.style.color = '#f44336';  // 红色
+                        } else if (data.cpu_percent > 60) {
+                            cpuElement.style.color = '#ff9800';  // 橙色
+                        } else {
+                            cpuElement.style.color = '#4caf50';  // 绿色
+                        }
+                    }
+                    
+                    // 更新内存使用率
+                    const memoryElement = document.getElementById('memoryUsage');
+                    if (memoryElement) {
+                        memoryElement.textContent = `${Math.round(data.memory.percent)}%`;
+                        // 根据使用率改变颜色
+                        if (data.memory.percent > 80) {
+                            memoryElement.style.color = '#f44336';
+                        } else if (data.memory.percent > 60) {
+                            memoryElement.style.color = '#ff9800';
+                        } else {
+                            memoryElement.style.color = '#4caf50';
+                        }
+                    }
+                    
+                    // 更新磁盘使用率
+                    const diskElement = document.getElementById('diskUsage');
+                    if (diskElement) {
+                        diskElement.textContent = `${Math.round(data.disk.percent)}%`;
+                        // 根据使用率改变颜色
+                        if (data.disk.percent > 80) {
+                            diskElement.style.color = '#f44336';
+                        } else if (data.disk.percent > 60) {
+                            diskElement.style.color = '#ff9800';
+                        } else {
+                            diskElement.style.color = '#4caf50';
+                        }
+                    }
+                    
+                    // 更新备份状态
+                    const backupStatus = document.getElementById('backupStatus');
+                    if (backupStatus) {
+                        if (data.backup_running) {
+                            backupStatus.innerHTML = '<i class="mdi mdi-sync spin"></i> 备份中';
+                            backupStatus.classList.add('status-running');
+                        } else {
+                            backupStatus.innerHTML = '<i class="mdi mdi-check-circle"></i> 空闲';
+                            backupStatus.classList.remove('status-running');
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.error('获取系统状态出错:', error);
+                });
+        }
+
+        // 更频繁地更新系统状态（每2秒）
+        setInterval(updateSystemStatus, 2000);
+        updateSystemStatus();
     </script>
 </body>
 </html> 

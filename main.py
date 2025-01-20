@@ -1,14 +1,29 @@
 import yaml
 import os
+import sys
 from src.logger import setup_logger
 from src.scheduler import BackupScheduler
 from src.web_app import create_app
 
+def get_resource_path(relative_path):
+    """获取资源文件的绝对路径"""
+    if hasattr(sys, '_MEIPASS'):
+        # PyInstaller打包后的路径
+        base_path = sys._MEIPASS
+    else:
+        # 开发环境路径
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
+
 def load_config():
     """加载配置文件"""
-    config_path = os.path.join('config', 'config.yaml')
-    with open(config_path, 'r', encoding='utf-8') as f:
-        return yaml.safe_load(f)
+    try:
+        config_path = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), 'config', 'config.yaml')
+        with open(config_path, 'r', encoding='utf-8') as f:
+            return yaml.safe_load(f)
+    except Exception as e:
+        print(f"Error loading config: {str(e)}")
+        raise
 
 def main():
     # 加载配置
@@ -29,6 +44,10 @@ def main():
         logger.error(f"Backup system error: {str(e)}")
         raise
 
-if __name__ == "__main__":
+if __name__ == '__main__':
+    # 设置工作目录为exe所在目录
+    if getattr(sys, 'frozen', False):
+        os.chdir(os.path.dirname(sys.executable))
+    
     app = create_app()
-    app.run(host='0.0.0.0', port=5000, debug=True) 
+    app.run(host='0.0.0.0', port=5000) 
