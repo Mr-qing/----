@@ -1,0 +1,163 @@
+2025-01-20 10:42:25,482 - root - INFO - Starting backup system
+2025-01-20 10:42:25,483 - src.scheduler - INFO - 成功设置任务 task1 的调度: */1 * * * *
+2025-01-20 10:42:25,483 - src.scheduler - INFO - 启动备份调度器
+2025-01-20 10:42:25,483 - src.scheduler - INFO - 等待执行调度任务...
+2025-01-20 10:43:25,509 - src.scheduler - INFO - ==================================================
+2025-01-20 10:43:25,509 - src.scheduler - INFO - 开始执行调度任务: task1
+2025-01-20 10:43:25,509 - src.scheduler - INFO - 执行时间: 2025-01-20 10:43:25
+2025-01-20 10:43:25,509 - src.backup_manager - INFO - 开始备份目录: C:/test_backup -> C:/test_backup
+2025-01-20 10:43:25,556 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_for_Windows_9.8)
+2025-01-20 10:43:25,679 - paramiko.transport - INFO - Authentication (password) successful!
+2025-01-20 10:43:25,887 - paramiko.transport.sftp - INFO - [chan 0] Opened sftp connection (server version 3)
+2025-01-20 10:43:25,888 - src.sftp_client - INFO - 成功连接到服务器 192.168.200.10
+2025-01-20 10:43:25,916 - src.sftp_client - INFO - 文件上传成功: C:/test_backup\1.txt -> C:/test_backup\.\1.txt
+2025-01-20 10:43:25,917 - src.backup_manager - INFO - 文件备份成功: C:/test_backup\1.txt -> C:/test_backup\.\1.txt (0.00 B)
+2025-01-20 10:43:25,947 - src.sftp_client - INFO - 文件上传成功: C:/test_backup\test.txt -> C:/test_backup\.\test.txt
+2025-01-20 10:43:25,947 - src.backup_manager - INFO - 文件备份成功: C:/test_backup\test.txt -> C:/test_backup\.\test.txt (0.00 B)
+2025-01-20 10:43:25,947 - src.backup_manager - INFO - 目录备份完成: C:/test_backup
+2025-01-20 10:43:25,947 - src.backup_manager - INFO - 成功备份 2/2 个文件
+2025-01-20 10:43:25,947 - paramiko.transport.sftp - INFO - [chan 0] sftp session closed.
+2025-01-20 10:43:25,948 - src.backup_manager - INFO - 备份任务 task1 执行成功
+2025-01-20 10:43:25,948 - src.backup_manager - INFO - --------------------------------------------------
+2025-01-20 10:43:25,948 - src.backup_manager - INFO - 备份任务总结 - task1
+2025-01-20 10:43:25,948 - src.backup_manager - INFO - 开始时间: 2025-01-20 10:43:25
+2025-01-20 10:43:25,948 - src.backup_manager - INFO - 结束时间: 2025-01-20 10:43:25
+2025-01-20 10:43:25,948 - src.backup_manager - INFO - 总文件数: 2
+2025-01-20 10:43:25,949 - src.backup_manager - INFO - 总大小: 0.00 B
+2025-01-20 10:43:25,949 - src.backup_manager - INFO - 成功: 2 个文件
+2025-01-20 10:43:25,949 - src.backup_manager - INFO - 失败: 0 个文件
+2025-01-20 10:43:25,949 - src.backup_manager - INFO - 跳过: 0 个文件（已是最新）
+2025-01-20 10:43:25,949 - src.backup_manager - INFO - --------------------------------------------------
+2025-01-20 10:43:25,949 - src.scheduler - INFO - 调度任务 task1 执行成功
+2025-01-20 10:43:25,949 - src.scheduler - INFO - ==================================================
+2025-01-20 10:44:25,973 - src.scheduler - INFO - ==================================================
+2025-01-20 10:44:25,973 - src.scheduler - INFO - 开始执行调度任务: task1
+2025-01-20 10:44:25,973 - src.scheduler - INFO - 执行时间: 2025-01-20 10:44:25
+2025-01-20 10:44:25,973 - src.backup_manager - INFO - 开始备份目录: C:/test_backup -> C:/test_backup
+2025-01-20 10:44:26,020 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_for_Windows_9.8)
+2025-01-20 10:44:26,139 - paramiko.transport - INFO - Authentication (password) successful!
+2025-01-20 10:44:26,351 - paramiko.transport.sftp - INFO - [chan 0] Opened sftp connection (server version 3)
+2025-01-20 10:44:26,351 - src.sftp_client - INFO - 成功连接到服务器 192.168.200.10
+2025-01-20 10:44:26,357 - src.sftp_client - INFO - 文件已是最新版本，跳过: C:/test_backup\1.txt
+2025-01-20 10:44:26,362 - src.sftp_client - INFO - 文件已是最新版本，跳过: C:/test_backup\test.txt
+2025-01-20 10:44:26,362 - src.backup_manager - INFO - 目录备份完成: C:/test_backup
+2025-01-20 10:44:26,362 - src.backup_manager - INFO - 成功备份 2/2 个文件
+2025-01-20 10:44:26,362 - paramiko.transport.sftp - INFO - [chan 0] sftp session closed.
+2025-01-20 10:44:26,363 - src.backup_manager - INFO - 备份任务 task1 执行成功
+2025-01-20 10:44:26,363 - src.backup_manager - INFO - --------------------------------------------------
+2025-01-20 10:44:26,363 - src.backup_manager - INFO - 备份任务总结 - task1
+2025-01-20 10:44:26,363 - src.backup_manager - INFO - 开始时间: 2025-01-20 10:44:25
+2025-01-20 10:44:26,363 - src.backup_manager - INFO - 结束时间: 2025-01-20 10:44:26
+2025-01-20 10:44:26,364 - src.backup_manager - INFO - 总文件数: 2
+2025-01-20 10:44:26,364 - src.backup_manager - INFO - 总大小: 0.00 B
+2025-01-20 10:44:26,364 - src.backup_manager - INFO - 成功: 0 个文件
+2025-01-20 10:44:26,364 - src.backup_manager - INFO - 失败: 0 个文件
+2025-01-20 10:44:26,364 - src.backup_manager - INFO - 跳过: 2 个文件（已是最新）
+2025-01-20 10:44:26,364 - src.backup_manager - INFO - --------------------------------------------------
+2025-01-20 10:44:26,364 - src.scheduler - INFO - 调度任务 task1 执行成功
+2025-01-20 10:44:26,364 - src.scheduler - INFO - ==================================================
+2025-01-20 10:45:26,386 - src.scheduler - INFO - ==================================================
+2025-01-20 10:45:26,386 - src.scheduler - INFO - 开始执行调度任务: task1
+2025-01-20 10:45:26,386 - src.scheduler - INFO - 执行时间: 2025-01-20 10:45:26
+2025-01-20 10:45:26,388 - src.backup_manager - INFO - 开始备份目录: C:/test_backup -> C:/test_backup
+2025-01-20 10:45:26,429 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_for_Windows_9.8)
+2025-01-20 10:45:26,544 - paramiko.transport - INFO - Authentication (password) successful!
+2025-01-20 10:45:26,732 - paramiko.transport.sftp - INFO - [chan 0] Opened sftp connection (server version 3)
+2025-01-20 10:45:26,732 - src.sftp_client - INFO - 成功连接到服务器 192.168.200.10
+2025-01-20 10:45:26,742 - src.sftp_client - INFO - 文件已是最新版本，跳过: C:/test_backup\1.txt
+2025-01-20 10:45:26,749 - src.sftp_client - INFO - 文件已是最新版本，跳过: C:/test_backup\test.txt
+2025-01-20 10:45:26,749 - src.backup_manager - INFO - 目录备份完成: C:/test_backup
+2025-01-20 10:45:26,749 - src.backup_manager - INFO - 成功备份 2/2 个文件
+2025-01-20 10:45:26,749 - paramiko.transport.sftp - INFO - [chan 0] sftp session closed.
+2025-01-20 10:45:26,750 - src.backup_manager - INFO - 备份任务 task1 执行成功
+2025-01-20 10:45:26,750 - src.backup_manager - INFO - --------------------------------------------------
+2025-01-20 10:45:26,750 - src.backup_manager - INFO - 备份任务总结 - task1
+2025-01-20 10:45:26,750 - src.backup_manager - INFO - 开始时间: 2025-01-20 10:45:26
+2025-01-20 10:45:26,750 - src.backup_manager - INFO - 结束时间: 2025-01-20 10:45:26
+2025-01-20 10:45:26,751 - src.backup_manager - INFO - 总文件数: 2
+2025-01-20 10:45:26,751 - src.backup_manager - INFO - 总大小: 0.00 B
+2025-01-20 10:45:26,751 - src.backup_manager - INFO - 成功: 0 个文件
+2025-01-20 10:45:26,751 - src.backup_manager - INFO - 失败: 0 个文件
+2025-01-20 10:45:26,752 - src.backup_manager - INFO - 跳过: 2 个文件（已是最新）
+2025-01-20 10:45:26,752 - src.backup_manager - INFO - --------------------------------------------------
+2025-01-20 10:45:26,752 - src.scheduler - INFO - 调度任务 task1 执行成功
+2025-01-20 10:45:26,753 - src.scheduler - INFO - ==================================================
+2025-01-20 10:46:26,776 - src.scheduler - INFO - ==================================================
+2025-01-20 10:46:26,776 - src.scheduler - INFO - 开始执行调度任务: task1
+2025-01-20 10:46:26,776 - src.scheduler - INFO - 执行时间: 2025-01-20 10:46:26
+2025-01-20 10:46:26,776 - src.backup_manager - INFO - 开始备份目录: C:/test_backup -> C:/test_backup
+2025-01-20 10:46:26,820 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_for_Windows_9.8)
+2025-01-20 10:46:26,964 - paramiko.transport - INFO - Authentication (password) successful!
+2025-01-20 10:46:27,188 - paramiko.transport.sftp - INFO - [chan 0] Opened sftp connection (server version 3)
+2025-01-20 10:46:27,188 - src.sftp_client - INFO - 成功连接到服务器 192.168.200.10
+2025-01-20 10:46:27,195 - src.sftp_client - INFO - 文件已是最新版本，跳过: C:/test_backup\1.txt
+2025-01-20 10:46:27,201 - src.sftp_client - INFO - 文件已是最新版本，跳过: C:/test_backup\test.txt
+2025-01-20 10:46:27,201 - src.backup_manager - INFO - 目录备份完成: C:/test_backup
+2025-01-20 10:46:27,201 - src.backup_manager - INFO - 成功备份 2/2 个文件
+2025-01-20 10:46:27,202 - paramiko.transport.sftp - INFO - [chan 0] sftp session closed.
+2025-01-20 10:46:27,202 - src.backup_manager - INFO - 备份任务 task1 执行成功
+2025-01-20 10:46:27,203 - src.backup_manager - INFO - --------------------------------------------------
+2025-01-20 10:46:27,203 - src.backup_manager - INFO - 备份任务总结 - task1
+2025-01-20 10:46:27,203 - src.backup_manager - INFO - 开始时间: 2025-01-20 10:46:26
+2025-01-20 10:46:27,203 - src.backup_manager - INFO - 结束时间: 2025-01-20 10:46:27
+2025-01-20 10:46:27,204 - src.backup_manager - INFO - 总文件数: 2
+2025-01-20 10:46:27,204 - src.backup_manager - INFO - 总大小: 0.00 B
+2025-01-20 10:46:27,204 - src.backup_manager - INFO - 成功: 0 个文件
+2025-01-20 10:46:27,204 - src.backup_manager - INFO - 失败: 0 个文件
+2025-01-20 10:46:27,204 - src.backup_manager - INFO - 跳过: 2 个文件（已是最新）
+2025-01-20 10:46:27,204 - src.backup_manager - INFO - --------------------------------------------------
+2025-01-20 10:46:27,204 - src.scheduler - INFO - 调度任务 task1 执行成功
+2025-01-20 10:46:27,204 - src.scheduler - INFO - ==================================================
+2025-01-20 10:47:27,230 - src.scheduler - INFO - ==================================================
+2025-01-20 10:47:27,230 - src.scheduler - INFO - 开始执行调度任务: task1
+2025-01-20 10:47:27,230 - src.scheduler - INFO - 执行时间: 2025-01-20 10:47:27
+2025-01-20 10:47:27,230 - src.backup_manager - INFO - 开始备份目录: C:/test_backup -> C:/test_backup
+2025-01-20 10:47:27,278 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_for_Windows_9.8)
+2025-01-20 10:47:27,451 - paramiko.transport - INFO - Authentication (password) successful!
+2025-01-20 10:47:27,648 - paramiko.transport.sftp - INFO - [chan 0] Opened sftp connection (server version 3)
+2025-01-20 10:47:27,648 - src.sftp_client - INFO - 成功连接到服务器 192.168.200.10
+2025-01-20 10:47:27,658 - src.sftp_client - INFO - 文件已是最新版本，跳过: C:/test_backup\1.txt
+2025-01-20 10:47:27,662 - src.sftp_client - INFO - 文件已是最新版本，跳过: C:/test_backup\test.txt
+2025-01-20 10:47:27,663 - src.backup_manager - INFO - 目录备份完成: C:/test_backup
+2025-01-20 10:47:27,663 - src.backup_manager - INFO - 成功备份 2/2 个文件
+2025-01-20 10:47:27,664 - paramiko.transport.sftp - INFO - [chan 0] sftp session closed.
+2025-01-20 10:47:27,665 - src.backup_manager - INFO - 备份任务 task1 执行成功
+2025-01-20 10:47:27,665 - src.backup_manager - INFO - --------------------------------------------------
+2025-01-20 10:47:27,665 - src.backup_manager - INFO - 备份任务总结 - task1
+2025-01-20 10:47:27,665 - src.backup_manager - INFO - 开始时间: 2025-01-20 10:47:27
+2025-01-20 10:47:27,666 - src.backup_manager - INFO - 结束时间: 2025-01-20 10:47:27
+2025-01-20 10:47:27,667 - src.backup_manager - INFO - 总文件数: 2
+2025-01-20 10:47:27,667 - src.backup_manager - INFO - 总大小: 0.00 B
+2025-01-20 10:47:27,667 - src.backup_manager - INFO - 成功: 0 个文件
+2025-01-20 10:47:27,667 - src.backup_manager - INFO - 失败: 0 个文件
+2025-01-20 10:47:27,668 - src.backup_manager - INFO - 跳过: 2 个文件（已是最新）
+2025-01-20 10:47:27,668 - src.backup_manager - INFO - --------------------------------------------------
+2025-01-20 10:47:27,668 - src.scheduler - INFO - 调度任务 task1 执行成功
+2025-01-20 10:47:27,668 - src.scheduler - INFO - ==================================================
+2025-01-20 10:48:27,695 - src.scheduler - INFO - ==================================================
+2025-01-20 10:48:27,695 - src.scheduler - INFO - 开始执行调度任务: task1
+2025-01-20 10:48:27,695 - src.scheduler - INFO - 执行时间: 2025-01-20 10:48:27
+2025-01-20 10:48:27,695 - src.backup_manager - INFO - 开始备份目录: C:/test_backup -> C:/test_backup
+2025-01-20 10:48:27,742 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_for_Windows_9.8)
+2025-01-20 10:48:27,859 - paramiko.transport - INFO - Authentication (password) successful!
+2025-01-20 10:48:28,057 - paramiko.transport.sftp - INFO - [chan 0] Opened sftp connection (server version 3)
+2025-01-20 10:48:28,057 - src.sftp_client - INFO - 成功连接到服务器 192.168.200.10
+2025-01-20 10:48:28,064 - src.sftp_client - INFO - 文件已是最新版本，跳过: C:/test_backup\1.txt
+2025-01-20 10:48:28,070 - src.sftp_client - INFO - 文件已是最新版本，跳过: C:/test_backup\test.txt
+2025-01-20 10:48:28,070 - src.backup_manager - INFO - 目录备份完成: C:/test_backup
+2025-01-20 10:48:28,070 - src.backup_manager - INFO - 成功备份 2/2 个文件
+2025-01-20 10:48:28,071 - paramiko.transport.sftp - INFO - [chan 0] sftp session closed.
+2025-01-20 10:48:28,071 - src.backup_manager - INFO - 备份任务 task1 执行成功
+2025-01-20 10:48:28,071 - src.backup_manager - INFO - --------------------------------------------------
+2025-01-20 10:48:28,072 - src.backup_manager - INFO - 备份任务总结 - task1
+2025-01-20 10:48:28,072 - src.backup_manager - INFO - 开始时间: 2025-01-20 10:48:27
+2025-01-20 10:48:28,072 - src.backup_manager - INFO - 结束时间: 2025-01-20 10:48:28
+2025-01-20 10:48:28,072 - src.backup_manager - INFO - 总文件数: 2
+2025-01-20 10:48:28,072 - src.backup_manager - INFO - 总大小: 0.00 B
+2025-01-20 10:48:28,073 - src.backup_manager - INFO - 成功: 0 个文件
+2025-01-20 10:48:28,073 - src.backup_manager - INFO - 失败: 0 个文件
+2025-01-20 10:48:28,073 - src.backup_manager - INFO - 跳过: 2 个文件（已是最新）
+2025-01-20 10:48:28,073 - src.backup_manager - INFO - --------------------------------------------------
+2025-01-20 10:48:28,073 - src.scheduler - INFO - 调度任务 task1 执行成功
+2025-01-20 10:48:28,073 - src.scheduler - INFO - ==================================================
+2025-01-20 10:49:19,989 - root - INFO - Backup system stopped by user

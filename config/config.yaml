@@ -1,0 +1,25 @@
+servers:
+  server1:
+    host: "192.168.200.10"
+    port: 222
+    username: "qing"
+    password: "qing."
+   # key_file: "/path/to/key.pem"  # 可选，使用密钥认证
+  server2:
+    host: "192.168.*.*"
+    port: 22
+    username: "实际的用户名"
+    password: "实际的密码"
+
+backup_tasks:
+  task1:
+    source_path: "C:/test_backup"  # 本地源目录
+    target_server: "server1"       # 目标服务器（远程）
+    target_path: "C:/test_backup"  # 远程目标目录
+    schedule: "*/1 * * * *"        # 每分钟执行一次（用于测试）
+    retry_times: 3
+    retry_interval: 30  # 重试间隔（秒）
+
+logging:
+  level: "INFO"
+  file: "logs/backup.log" 
