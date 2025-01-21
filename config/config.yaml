@@ -16,7 +16,13 @@ backup_tasks:
     source_path: "C:/test_backup"  # 本地源目录
     target_server: "server8.129"   # 修改目标服务器名称
     target_path: "C:/test_backup"  # 远程目标目录
-    schedule: "*/1 * * * *"        # 每分钟执行一次（用于测试）
+    # 支持以下调度格式：
+    # */n: 每 n 分钟执行一次，如 */30
+    # HH:MM: 每天特定时间执行，如 14:30
+    # MM HH: 每天特定时间执行，如 30 14
+    # HH:MM W: 每周特定时间执行，W为星期几(0-6)，如 14:30 1
+    # */n h-h: 在特定小时范围内每n分钟执行，如 */30 9-18
+    schedule: "*/30"        # 每30分钟执行一次
     retry_times: 3
     retry_interval: 30  # 重试间隔（秒）
 
