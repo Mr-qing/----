@@ -969,9 +969,11 @@
     <script src="{{ url_for('static', filename='js/chart.min.js') }}"></script>
     <script>
         // 从服务器端传递的数据
-        var tasks = {{ tasks|tojson|safe }};
-        var servers = {{ servers|tojson|safe }};
-
+        //var tasks = {{ tasks|tojson|safe }};
+        //var servers = {{ servers|tojson|safe }};
+        // 从服务器端传递的数据
+        var tasks = JSON.parse('{{ tasks|tojson|safe }}');
+        var servers = JSON.parse('{{ servers|tojson|safe }}');
         // 更新日志
         function updateLogs() {
             fetch('/api/logs')

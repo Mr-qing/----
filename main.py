@@ -19,13 +19,22 @@ def load_config():
     """加载配置文件"""
     try:
         config_path = os.path.join(os.path.dirname(os.path.abspath(sys.argv[0])), 'config', 'config.yaml')
+        if not os.path.exists(config_path):
+            raise FileNotFoundError(f"Config file not found: {config_path}")
         with open(config_path, 'r', encoding='utf-8') as f:
             return yaml.safe_load(f)
+    except FileNotFoundError as fnf_e:
+        print(f"Error loading config: {str(fnf_e)}")
+        raise
     except Exception as e:
         print(f"Error loading config: {str(e)}")
         raise
 
 def main():
+    # 设置工作目录为exe所在目录
+    if getattr(sys, 'frozen', False):
+        os.chdir(os.path.dirname(sys.executable))
+    
     # 加载配置
     config = load_config()
     
@@ -43,11 +52,11 @@ def main():
     except Exception as e:
         logger.error(f"Backup system error: {str(e)}")
         raise
-
-if __name__ == '__main__':
-    # 设置工作目录为exe所在目录
-    if getattr(sys, 'frozen', False):
-        os.chdir(os.path.dirname(sys.executable))
     
+    # 启动Web应用
+    logger.info("Starting web application")
     app = create_app()
     app.run(host='0.0.0.0', port=5000)
+
+if __name__ == '__main__':
+    main()
